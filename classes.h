@@ -7,16 +7,20 @@
 class Ant{
  int ID;
  int energy;
- int PosX_a, PosY_a;
- //type of ant
+ int PosX, PosY;
 };
 
 class Nest{
   int ID;
   int energy;
-  Ant *ants;
+  vector <Ant *> ants;
   int PosX_n, PosY_n;
 };
 
+class Migalha{
+  int ID;
+  int energy;
+  int PosX, PosY;
+};
 
 #endif
