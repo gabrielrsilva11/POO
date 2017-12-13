@@ -1,0 +1,9 @@
+defmundo
+defen
+defpc
+defvt
+defmi
+defme
+defnm
+executa
+inicio
