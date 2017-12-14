@@ -22,16 +22,14 @@ typedef struct configuracao{
     int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
 }config_t;
 
-int** criaMundo (int limite);
-
 /* --- Command functions --- */
 int space_count(const string& verify);
 vector<string> load_commands();
 bool check_command(const string& command,const vector<string>&list);
 bool check_existence(const string& command,const vector<string>&list);
 string listaComandos(const vector<string>&comm_list);
-int whichCommand(const string &command);
-
+int whichCommand(const vector<string>&comm_list, const string &command, int arg);
+void leExecuta(const vector<string>&comm_list)
 /* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
 double uniform01();
 

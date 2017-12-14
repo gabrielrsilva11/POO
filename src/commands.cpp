@@ -44,24 +44,32 @@ string listaComandos(const vector<string>&comm_list){
     return os.str();
 }
 
-int whichCommand(const string &command){
+int whichCommand(const vector<string>&comm_list, const string &command, int arg){
+    config_t inicial;
     if (command == "defmundo")
-        return 1;
+      if(arg <= 10 && arg > 0)
+        inicial.lim = arg;
+      else
+        cout << "Valor introduzido muito alto";
     if (command == "defen")
-        return 2;
+        inicial.energiaNinho = arg;
     if (command == "defpc")
-        return 3;
+        inicial.energiaLim = arg;
     if (command == "defvt")
-        return 4;
+        inicial.energiaTransf = arg;
     if (command == "defmi")
-        return 5;
+        if(arg <= 100 && arg >0)
+          inicial.percentMigalh = arg;
+        else
+          cout << "Valor introduzido muito alto";
     if (command == "defme")
-        return 6;
+        inicial.energiaMigalh = arg;
     if (command == "defnm")
-        return 7;
+        inicial.maxMigalhInst = arg;
     if (command == "executa")
-        return 8;
+        leExecuta(comm_list);
     if (command == "inicio")
+        //inicializaVariaveis(); ainda nao esta feita porque nao estou a ver bem como fazer
         return 9;
 }
 
@@ -74,4 +82,23 @@ int space_count(const string& verify){
       nspaces++;
 
   return nspaces;
+}
+
+void leExecuta(const vector<string>&comm_list){
+  ifstream fs;
+  string command;
+  int arg;
+
+  fs.open("executa.txt");
+
+  while(getline(fs, command)){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
+    getline(fs, arg);
+    if(check_command(comm_list, command)) //verifica se o comando existe
+      if(command != "executa") // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
+        whichCommand(comm_list, command, arg); // executa o comando lido
+      else{
+        cout << "Este comando nao existe";
+        return;
+      }
+  }
 }
