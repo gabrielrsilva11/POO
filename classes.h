@@ -1,7 +1,7 @@
 #ifndef classes_H
 #define classes_H
 
-
+#include "includeme.h"
 /* -- Classes and structures -- */
 
 class Ant{
@@ -13,7 +13,7 @@ class Ant{
 class Nest{
   int ID;
   int energy;
-  vector <Ant *> ants;
+  vector <Ant*> ants;
   int PosX_n, PosY_n;
 };
 

@@ -14,14 +14,14 @@ Dez 2016 - Exemplo melhorado.
 
 /* --> ver comentários em consola.h */
 
-#include "consola.h"                      
+#include "consola.h"
 #include <windows.h>
 #include <stdio.h>
 
 // Definição das variáveis estáticas
 HANDLE Consola::hconsola = GetStdHandle(STD_OUTPUT_HANDLE);
 HANDLE Consola::hStdin = GetStdHandle(STD_INPUT_HANDLE);;
-HWND Consola::hwnd = GetConsoleWindow();
+//HWND Consola::hwnd = GetConsoleWindow(); //no codeblocks isto dá erro
 
 /*
 Consola::Consola() {
@@ -193,7 +193,7 @@ void Consola::setTextSizeXP(int x, int y){
 //   o refresh da janela da consola não re-actualiza isto
 //   por esse motivo nao vale a pena optimizar certos aspectos destas funções
 // os alunos que gostarem de iformática podem pegar nisto
-//  e explorar e acrescentar 
+//  e explorar e acrescentar
 void Consola::drawLine(int x1, int y1, int x2, int y2, int cor){
 #ifdef _MSC_VER
 	HDC DrawHDC;

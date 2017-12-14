@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1513262414 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\commands.cpp
+	"includeme.h"
+
+1513262766 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\includeme.h
+	<iostream>
+	<string>
+	<algorithm>
+	<sstream>
+	<vector>
+	<fstream>
+
+1513145458 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\classes.h
+
+1513262520 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\main.cpp
+	"includeme.h"
+
+1513262954 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\consola.cpp
+	"consola.h"
+	<windows.h>
+	<stdio.h>
+
+1513262083 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\tp_poo\consola.h
+	<windows.h>
+
