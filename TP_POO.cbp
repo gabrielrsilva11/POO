@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,11 +34,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="classes.h" />
 		<Unit filename="command_list.txt" />
-		<Unit filename="commands.cpp" />
-		<Unit filename="includeme.h" />
+		<Unit filename="include/Ant.h" />
+		<Unit filename="include/Consola.h" />
+		<Unit filename="include/Migalha.h" />
+		<Unit filename="include/Nest.h" />
+		<Unit filename="include/classes.h" />
+		<Unit filename="include/includeme.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Ant.cpp" />
+		<Unit filename="src/Consola.cpp" />
+		<Unit filename="src/Migalha.cpp" />
+		<Unit filename="src/Nest.cpp" />
+		<Unit filename="src/commands.cpp" />
+		<Unit filename="src/funcoesGlobais.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

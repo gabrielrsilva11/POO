@@ -11,13 +11,28 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+#include <random>
+#include <cmath>
+#include "Consola.h"
 
 using namespace std;
+
+typedef struct configuracao{
+    int lim = -1, energiaNinho = -1, energiaLim =-1, energiaTransf=-1;
+    int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
+}config_t;
+
+int** criaMundo (int limite);
 
 /* --- Command functions --- */
 int space_count(const string& verify);
 vector<string> load_commands();
 bool check_command(const string& command,const vector<string>&list);
 bool check_existence(const string& command,const vector<string>&list);
+string listaComandos(const vector<string>&comm_list);
+int whichCommand(const string &command);
+
+/* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
+double uniform01();
 
 #endif

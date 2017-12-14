@@ -5,7 +5,7 @@ vector<string> load_commands(){
   vector<string>comm_list;
   ifstream fs;
   string command;
-  fs.open("command_list.txt");
+  fs.open("command_mundo.txt");
 
   while(getline(fs, command)){
     comm_list.push_back(command);
@@ -18,6 +18,7 @@ vector<string> load_commands(){
 /* Takes care of everything concerning the validity of commands */
 bool check_command(const string& command,const vector<string>&list){
   int spaces,exists;
+
   if((spaces = space_count(command))!=0)
     return false;
 
@@ -27,6 +28,42 @@ bool check_command(const string& command,const vector<string>&list){
   return true;
 }
 
+/* Checks if the command exists in the command_list.txt file */
+bool check_existence(const string& command,const vector<string>&list){
+  for(int i= 0;i<list.size();i++){
+    if(command == list[i])
+      return true;
+  }
+  return false;
+}
+
+string listaComandos(const vector<string>&comm_list){
+    ostringstream os;
+    for(int i= 0;i<comm_list.size();i++) //faz um print dos comandos no vector
+    os << comm_list[i] << endl;
+    return os.str();
+}
+
+int whichCommand(const string &command){
+    if (command == "defmundo")
+        return 1;
+    if (command == "defen")
+        return 2;
+    if (command == "defpc")
+        return 3;
+    if (command == "defvt")
+        return 4;
+    if (command == "defmi")
+        return 5;
+    if (command == "defme")
+        return 6;
+    if (command == "defnm")
+        return 7;
+    if (command == "executa")
+        return 8;
+    if (command == "inicio")
+        return 9;
+}
 
 /* Counts spaces */
 int space_count(const string& verify){
@@ -37,13 +74,4 @@ int space_count(const string& verify){
       nspaces++;
 
   return nspaces;
-}
-
-/* Checks if the command exists in the command_list.txt file */
-bool check_existence(const string& command,const vector<string>&list){
-  for(int i= 0;i<list.size();i++){
-    if(command == list[i])
-      return true;
-  }
-  return false;
 }
