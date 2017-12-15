@@ -4,15 +4,50 @@
 #include "includeme.h"
 
 class Ant{
- int ID;
+ static int counter;
+ const int ID;
  int energy;
  int PosX, PosY; //movimento coordenadas
- int Rvisao,Rmov; //raio de visão e de movimento
- char avatar;
+ int Rvisao,Rmov; //raio de visï¿½o e de movimento
  public:
-     Ant();
+     Ant(int a=50, int b, int c, int d, int e):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e){
+       ID = ++counter;
+     };
+     int getID() const{
+       return ID;
+     }
+     int getEnergy() const{
+       return energy;
+     }
+     int getPosX() const{
+       return PosX;
+     }
+     int getPosY() const{
+       return PosY;
+     }
+     int getRvisao() const{
+       return Rvisao;
+     }
+     int getRmov() const{
+       return Rmov;
+     }
+     string getInfo(){
+       ostringstream os;
+       os << "ID: " << getID() << " Energy: " << getEnergy() << " Pos: " << getPosX() << " " << getPosY() << " Raio Visao: " << getRvisao() << " Raio Mov: " << getRmov();
+       return os.str();
+     }
+     void setEnergy(int add){
+       energy += add;
+     }
+     void setPosX(int add){
+       PosX += add;
+     }
+     void setPosY(int add){
+       PosY +=add;
+     }
      ~Ant();
 };
+int Ant::counter=0;
 
 class Cuidadora:public Ant{};
 class Vigilante:public Ant{};

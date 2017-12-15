@@ -31,6 +31,6 @@ string listaComandos(const vector<string>&comm_list);
 int whichCommand(const vector<string>&comm_list, const string &command, int arg);
 void leExecuta(const vector<string>&comm_list)
 /* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
-double uniform01();
+double uniform01(int upper);
 
 #endif
