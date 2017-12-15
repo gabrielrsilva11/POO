@@ -24,7 +24,7 @@ typedef struct configuracao{
 
 /* --- Command functions --- */
 int space_count(const string& verify);
-vector<string> load_commands();
+vector<string> load_commands(string ficheiro);
 bool check_command(const string& command,const vector<string>&list);
 bool check_existence(const string& command,const vector<string>&list);
 string listaComandos(const vector<string>&comm_list);

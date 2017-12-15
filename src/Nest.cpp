@@ -10,7 +10,7 @@ Nest::~Nest()
     //dtor
 }
 
-void Nest::addFormigas(int num,){
+void Nest::addFormigas(int num){
   int posx,posy;
   for(int i=0; i<num; i++){
     posx = uniform01(8);

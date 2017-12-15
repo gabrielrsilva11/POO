@@ -1,11 +1,11 @@
 #include "includeme.h"
 
 /* Reads commands from .txt file */
-vector<string> load_commands(){
+vector<string> load_commands(string ficheiro){
   vector<string>comm_list;
   ifstream fs;
   string command;
-  fs.open("command_mundo.txt");
+  fs.open(ficheiro);
 
   while(getline(fs, command)){
     comm_list.push_back(command);
@@ -69,7 +69,7 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg)
     if (command == "executa")
         leExecuta(comm_list);
     if (command == "inicio")
-        //inicializaVariaveis(); ainda nao esta feita porque nao estou a ver bem como fazer
+        segundosComandos(inicial); //ainda nao esta feita porque nao estou a ver bem como fazer
         return 9;
 }
 
@@ -100,5 +100,22 @@ void leExecuta(const vector<string>&comm_list){
         cout << "Este comando nao existe";
         return;
       }
+  }
+}
+
+void segundosComandos(config_t inicial){
+  string command, param; //o parametro devera ser convertido para inteiro
+  vector<string>comm_list;
+  comm_list=load_commands("command_simul.txt")
+
+  do{
+  cout << "Insira comando.: para sair escreva 'sair'" << endl;
+  getline(cin,command);  // getline para evitar problemas com buffers
+  if (command == "sair"){
+     cout << "encerrando" << endl; break;
+  }
+  else if(check_command(command,comm_list)==false){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
+    cout << "Comando invalido" << endl;
+    return 0;
   }
 }

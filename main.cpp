@@ -4,7 +4,7 @@ int main(){
   string command, param; //o parametro devera ser convertido para inteiro
   vector<string>comm_list;
   int arg;
-  comm_list=load_commands(); //inicializa comandos
+  comm_list=load_commands("command_mundo.txt"); //inicializa comandos
   string c, l;
   config_t configs;
 
