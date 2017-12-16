@@ -5,12 +5,12 @@
 
 class Ant{
  static int counter;
- const int ID;
+ int ID;
  int energy;
  int PosX, PosY; //movimento coordenadas
  int Rvisao,Rmov; //raio de vis�o e de movimento
  public:
-     Ant(int a=50, int b, int c, int d, int e):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e){
+     Ant(int a=50, int b=0, int c=0, int d=0, int e=0):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e){
        ID = ++counter;
      };
      int getID() const{
@@ -47,7 +47,7 @@ class Ant{
      }
      ~Ant();
 };
-int Ant::counter=0;
+
 
 class Cuidadora:public Ant{};
 class Vigilante:public Ant{};

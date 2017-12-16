@@ -6,7 +6,7 @@
 
 class Nest{
   static int counter;
-  const int ID;
+  int ID;
   int energy, nova, transfere;
   vector <Ant*> ants;
   int PosX_n, PosY_n;
@@ -25,7 +25,7 @@ class Nest{
         return nova;
       }
       int getTransfere() const{
-        return Transfere;
+        return transfere;
       }
       int getPosX() const{
         return PosX_n;

@@ -29,7 +29,8 @@ bool check_command(const string& command,const vector<string>&list);
 bool check_existence(const string& command,const vector<string>&list);
 string listaComandos(const vector<string>&comm_list);
 int whichCommand(const vector<string>&comm_list, const string &command, int arg);
-void leExecuta(const vector<string>&comm_list)
+void leExecuta(const vector<string>&comm_list);
+void segundosComandos(config_t inicial);
 /* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
 double uniform01(int upper);
 

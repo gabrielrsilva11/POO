@@ -1,18 +1,20 @@
 #include "Ant.h"
 
 /* Classe base */
-Ant::Ant()
+
+int Ant::counter=0;
+/*Ant::Ant()
 {
     //ctor
-}
+}*/
 
 
 
-Ant::~Ant()
+/*Ant::~Ant()
 {
     //dtor
 }
-
+*/
 
 /*  Cuidadora */
 

@@ -85,20 +85,22 @@ int space_count(const string& verify){
 }
 
 void leExecuta(const vector<string>&comm_list){
-  ifstream fs;
+  ifstream fs ("executa.txt");
   string command;
-  int arg;
+  string arg;
 
-  fs.open("executa.txt");
+  if(fs.is_open()){
 
-  while(getline(fs, command)){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
-    getline(fs, arg);
-    if(check_command(comm_list, command)) //verifica se o comando existe
-      if(command != "executa") // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
-        whichCommand(comm_list, command, arg); // executa o comando lido
-      else{
-        cout << "Este comando nao existe";
-        return;
+      while(getline(fs,command)){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
+        getline(fs,arg);
+        if(check_command(command,comm_list)){ //verifica se o comando existe
+          if(command != "executa") // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
+            whichCommand(comm_list, command, atoi(arg.c_str())); // executa o comando lido
+          else{
+            cout << "Este comando nao existe";
+            return;
+          }
+        }
       }
   }
 }
@@ -106,16 +108,17 @@ void leExecuta(const vector<string>&comm_list){
 void segundosComandos(config_t inicial){
   string command, param; //o parametro devera ser convertido para inteiro
   vector<string>comm_list;
-  comm_list=load_commands("command_simul.txt")
+  comm_list=load_commands("command_simul.txt");
 
   do{
-  cout << "Insira comando.: para sair escreva 'sair'" << endl;
-  getline(cin,command);  // getline para evitar problemas com buffers
-  if (command == "sair"){
-     cout << "encerrando" << endl; break;
-  }
-  else if(check_command(command,comm_list)==false){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
-    cout << "Comando invalido" << endl;
-    return 0;
-  }
+      cout << "Insira comando.: para sair escreva 'sair'" << endl;
+      getline(cin,command);  // getline para evitar problemas com buffers
+      if (command == "sair"){
+         cout << "encerrando" << endl; break;
+      }
+      else if(check_command(command,comm_list)==false){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
+        cout << "Comando invalido" << endl;
+        return;
+      }
+  }while(1);
 }
