@@ -52,6 +52,7 @@
 		<Unit filename="src/funcoesGlobais.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="src/simulacao.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

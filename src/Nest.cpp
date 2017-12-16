@@ -11,23 +11,17 @@ Nest::~Nest()
     //dtor
 }*/
 int Nest::counter=0; //para evitar o multiple definition no .h
-/*
-void Nest::addFormigas(int num){
-  int posx,posy;
-  for(int i=0; i<num; i++){
-    posx = uniform01(8);
-    posy = uniform01(8); // vai generar posicoes automaticamente e preciso ver se estao ocupadas depois
-    ants.push_back(new Ant(50, posx, posy,10,8, getCorNinho())); //10 e 8 sao os raios de visao e mov como ainda so e preciso 1 tipo de formiga pode ser assim por agora
-  }
-}
-*/ // O protótipo do constructor da formiga estava mal
-void Nest::addFormigas(int num){
-  int posx,posy;
-  for(int i=0; i<num; i++){
-    posx =1;
-    posy =1; //temporario
- //   posx = uniform01(8);
-   // posy = uniform01(8); // vai gerar posicoes automaticamente e preciso ver se estao ocupadas depois
+
+void Nest::addFormigas(int num,int x, int y){
+    for(int i=0;i<num;i++){
+      if(x==-1){
+        int posx = uniform01(8);
+        int posy = uniform01(8-posx); // so pode andar raio 8 por isso o que andar no x temos de subtrair ao y que e o max que pode andar
+      }
     ants.push_back(new Ant(50, posx, posy,10,8)); //10 e 8 sao os raios de visao e mov como ainda so e preciso 1 tipo de formiga pode ser assim por agora
   }
+  /*
+  PARA IMPRIMIR O NINHO NESTA POSICAO
+  gotoxy(x, y);
+  cout << Ant::getAvatar();*/
 }

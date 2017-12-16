@@ -51,25 +51,25 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg)
         inicial.lim = arg;
       else
         cout << "Valor introduzido muito alto";
-    if (command == "defen")
+    else if (command == "defen")
         inicial.energiaNinho = arg;
-    if (command == "defpc")
+    else if (command == "defpc")
         inicial.energiaLim = arg;
-    if (command == "defvt")
+    else if (command == "defvt")
         inicial.energiaTransf = arg;
-    if (command == "defmi")
+    else if (command == "defmi")
         if(arg <= 100 && arg >0)
           inicial.percentMigalh = arg;
         else
           cout << "Valor introduzido muito alto";
-    if (command == "defme")
+    else if (command == "defme")
         inicial.energiaMigalh = arg;
-    if (command == "defnm")
+    else if (command == "defnm")
         inicial.maxMigalhInst = arg;
-    if (command == "executa")
+    else if (command == "executa")
         leExecuta(comm_list);
-    if (command == "inicio")
-        segundosComandos(inicial); //ainda nao esta feita porque nao estou a ver bem como fazer
+    else if (command == "inicio")
+        segundosComandos(inicial);
         return 9;
 }
 

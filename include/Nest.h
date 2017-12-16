@@ -6,6 +6,7 @@
 
 class Nest{
   static int counter;
+  char avatar;
   int ID;
   int energy, nova, transfere;
   vector <Ant*> ants;
@@ -33,6 +34,9 @@ class Nest{
       int getPosY() const{
         return PosY_n;
       }
+      char getAvatar() const{
+        return avatar;
+      }
       WORD getCorNinho() const{
         return corNinho;
       }
@@ -43,7 +47,18 @@ class Nest{
         }
         return os.str();
       }
-      void addFormigas(int num);
+      string getInfoGeral() const{
+        ostringstream os;
+        os << "Ninho " << getID() << endl;
+        os << "Posicao: " << getPosX() << " " << getPosY() << endl;
+        os << "---Informacoes gerais---" << endl;
+        os << "Energia: " << getEnergy()<< endl;
+        os << "Nova: " << getNova() << endl;
+        os << "Transferencia: " << getTransfere() << endl;
+        os << "Numero de formigas: " << ants.size() << "\n" << endl;
+        return os.str();
+      }
+      void addFormigas(int x, int y);
      ~Nest();
      WORD getColor() const{return corNinho;}
 };

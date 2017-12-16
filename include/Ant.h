@@ -5,6 +5,7 @@
 
 class Ant{
  static int counter;
+ char Avatar;
  int ID;
  int energy;
  int PosX, PosY; //movimento coordenadas
@@ -13,6 +14,9 @@ class Ant{
      Ant(int a=50, int b=0, int c=0, int d=0, int e=0):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e){
        ID = ++counter;
      };
+     char getAvatar() const{
+       return Avatar;
+     }
      int getID() const{
        return ID;
      }
