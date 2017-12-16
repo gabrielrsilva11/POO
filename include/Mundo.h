@@ -11,8 +11,10 @@ class Mundo
     int **mapa;
     public:
         Mundo(){
-            int tam = limite*limite;
-            *mapa= new int [tam];  //não esquecer de fazer free
+            mapa= new int*[limite]
+            for(int i=0; i < limite ; i++){
+                mapa[i]= new int[limite]
+            };  //não esquecer de fazer free
         };
         void setMapa(int x,int y){
             mapa[x][y]=1;
