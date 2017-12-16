@@ -47,5 +47,5 @@ class Nest{
      ~Nest();
      WORD getColor() const{return corNinho;}
 };
-int Nest::counter=0;
+
 #endif // NEST_H

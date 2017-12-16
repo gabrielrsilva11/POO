@@ -10,7 +10,7 @@ Nest::~Nest()
 {
     //dtor
 }*/
-
+int Nest::counter=0; //para evitar o multiple definition no .h
 /*
 void Nest::addFormigas(int num){
   int posx,posy;

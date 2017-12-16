@@ -38,6 +38,7 @@
 		<Unit filename="include/Ant.h" />
 		<Unit filename="include/Consola.h" />
 		<Unit filename="include/Migalha.h" />
+		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/Nest.h" />
 		<Unit filename="include/classes.h" />
 		<Unit filename="include/includeme.h" />
@@ -45,6 +46,7 @@
 		<Unit filename="src/Ant.cpp" />
 		<Unit filename="src/Consola.cpp" />
 		<Unit filename="src/Migalha.cpp" />
+		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/Nest.cpp" />
 		<Unit filename="src/commands.cpp" />
 		<Unit filename="src/funcoesGlobais.cpp">
