@@ -69,7 +69,7 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg)
     else if (command == "executa")
         leExecuta(comm_list);
     else if (command == "inicio")
-        segundosComandos(inicial);
+        segundosComandos(inicial);  //só deve fazer isto se todos os outros parâmetros estiverem definidos
         return 9;
 }
 
@@ -93,6 +93,7 @@ void leExecuta(const vector<string>&comm_list){
 
       while(getline(fs,command)){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
         getline(fs,arg);
+        cout << "Li o comando " << command << " com o argumento " << arg << endl;
         if(check_command(command,comm_list)){ //verifica se o comando existe
           if(command != "executa") // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
             whichCommand(comm_list, command, atoi(arg.c_str())); // executa o comando lido

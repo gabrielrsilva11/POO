@@ -5,12 +5,12 @@ void segundosComandos(config_t inicial){
   vector<string>comm_list;
 
   comm_list=load_commands("command_simul.txt");
-
+  cout << "Iniciando simulacão " << endl;
   do{
-      cout << "Insira comando.: para sair escreva 'sair'" << endl;
+      cout << "[SIMUL]Insira comando.: para sair escreva 'sair'" << endl;
       getline(cin,command);  // getline para evitar problemas com buffers
       if (command == "sair"){
-         cout << "encerrando" << endl; break;
+         cout << "[SIMUL] encerrando" << endl; break;
       }
       else if(check_command(command,comm_list)==true){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
         comandosSimul(comm_list, command, inicial);

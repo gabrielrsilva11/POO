@@ -17,10 +17,12 @@ int main(){
     cout << "Comando invalido" << endl;
     return 0;
   }
+  if (command != "executa" && command != "inicio"){ // se for executa ou inicio não vale a pena estar a pedir parâmetros
   cout << "Insira parametro.: " << endl; //vamos ter de passar isto para ler o comando todo de uma vez como em SO
   getline(cin,param);
   arg = atoi(param.c_str());
   cout << listaComandos(comm_list);
+  }
 
   int num = whichCommand(comm_list, command, arg);
   cout << "Num comando " << num << endl;
