@@ -1,4 +1,5 @@
 #include "Mundo.h"
+
 /*
 Mundo::Mundo()
 {
@@ -15,14 +16,14 @@ void Mundo::newNinho(config_t inicial, int x, int y){
     cout << "Posicao ocupada" << endl;
     return;
   }
-  ninhos.push_back(new Nest(inicial.energiaNinho, inicial.energiaLim, inicial.energiaTransf, x, y, AZUL));
+  ninhos.push_back(new Nest(inicial.energiaNinho, inicial.energiaLim, inicial.energiaTransf, x, y, (Consola::AZUL)));
   /*
   PARA IMPRIMIR O NINHO NESTA POSICAO
   gotoxy(x, y);
   cout << Nest::getAvatar();*/
 }
 
-void Mundo::addFormigas(int num, int ID , x = -1, y = -1){
+void Mundo::addFormigas(int num, int ID , int x, int y){
   for(auto it=ninhos.begin(); it < ninhos.end(); it++){
     if((*it)->getID() == ID){
       addFormigas(num, x, y);
@@ -56,12 +57,13 @@ bool Mundo::verificaPos(int x, int y){
     return true;
 }
 
-string Mundo::getInforCoord(int x, int y){
+string Mundo::getInfoCoord(int x, int y){
+  ostringstream os;
   for(auto it=ninhos.begin();it < ninhos.end() ; it++){
     if((*it)->getPosX() == x && (*it)->getPosY() == y)
       return (*it)->getInfoGeral();
     else{
-      
+
     }
   }
 

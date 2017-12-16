@@ -14,7 +14,7 @@ Dez 2016 - Exemplo melhorado.
 
 /* --> ver comentários em consola.h */
 
-#include "consola.h"
+#include "Consola.h"
 #include <windows.h>
 #include <stdio.h>
 

@@ -4,32 +4,31 @@
 #include "Nest.h"
 #include "Ant.h"
 #include "Migalha.h"
+#include "includeme.h"
 
 class Mundo
 {
-    static int limite;
+    int limite;
     vector <Nest*> ninhos;
     int **mapa;
+
     public:
         Mundo(){
-            mapa= new int*[limite]
+            mapa = new int*[limite];
             for(int i=0; i < limite ; i++){
-                mapa[i]= new int[limite]
-            };  //n�o esquecer de fazer free
+                mapa[i]= new int[limite];
+            }  //n�o esquecer de fazer free
         };
         void setMapa(int x,int y){
             mapa[x][y]=1;
         }
-        string getInfo() const
+        string getInfo() const;
         void newNinho(config_t inicial, int x, int y);
-        void addFormigas(int num, int ID , x = -1, y = -1);
+        void addFormigas(int num, int ID ,int x = -1,int y = -1);
         string getNinho(int ID) const;
         bool verificaPos(int x, int y);
         string getInfoCoord(int x, int y);
-        virtual ~Mundo();
-    protected:
-
-    private:
+    //    virtual ~Mundo();
 };
 
 #endif // MUNDO_H

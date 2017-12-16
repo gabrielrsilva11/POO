@@ -34,7 +34,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="command_list.txt" />
 		<Unit filename="include/Ant.h" />
 		<Unit filename="include/Consola.h" />
 		<Unit filename="include/Migalha.h" />
