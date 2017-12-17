@@ -88,6 +88,7 @@ void segundosComandos(config_t inicial){
         else if (command == "tempo"){
             cout << "Numero de iteracoes: ";
             getline(cin, arg1);
+            a.avancar(atoi(arg1.c_str()));
           }
     }
   }while(1);
