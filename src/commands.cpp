@@ -49,8 +49,12 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg,
     if (command == "defmundo")
       if(arg <= 10 && arg > 0)
         inicial.lim = arg;
-      else
-        cout << "Valor introduzido muito alto";
+      else{
+        Consola::clrscr();
+        Consola::gotoxy(0,15);
+        cout << "Valor introduzido muito alto\nPrima uma tecla para tentar de novo";
+        Consola::getch();
+      }
     else if (command == "defen")
         inicial.energiaNinho = arg;
     else if (command == "defpc")
@@ -69,8 +73,17 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg,
     else if (command == "executa")
         leExecuta(comm_list,inicial);
     else if (command == "inicio")
-        segundosComandos(inicial);  //só deve fazer isto se todos os outros parâmetros estiverem definidos
-        return 9;
+        //if(inicial.lim != -1 && inicial.energiaLim != -1 && inicial.energiaTransf != -1 && inicial.energiaNinho != -1){ // mais tarde temos de adicionar aqui os comandos das migalhas
+            segundosComandos(inicial);
+        /*}
+        else{
+            Consola::clrscr();
+            Consola::gotoxy(0,15);
+            cout << "Ainda nao executou  todas as configuracoes iniciais\nPrima uma tecla para tentar de novo";
+            Consola::getch();
+        }*/
+
+    return 1;
 }
 
 /* Counts spaces */

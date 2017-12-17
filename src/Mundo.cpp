@@ -12,15 +12,14 @@ Mundo::~Mundo()
 }
 */
 void Mundo::newNinho(config_t inicial, int x, int y){
-  /*if(mapa[x][y]==1){
+  if(mapa[x][y]==1){
     cout << "Posicao ocupada" << endl;
     return;
-  }*/
+  }
+  setMapa(x,y);
   ninhos.push_back(new Nest(inicial.energiaNinho, inicial.energiaLim, inicial.energiaTransf, x, y, (Consola::AZUL)));
-  /*
-  PARA IMPRIMIR O NINHO NESTA POSICAO
-  gotoxy(x, y);
-  cout << Nest::getAvatar();*/
+    Consola::gotoxy(x,y);
+    cout << "O";
 }
 
 void Mundo::addFormigas(int num, int ID , int x, int y){

@@ -4,6 +4,7 @@
 #include "includeme.h"
 #include "Ant.h"
 
+
 class Nest{
   static int counter;
   char avatar;
@@ -13,7 +14,7 @@ class Nest{
   int PosX_n, PosY_n;
   WORD corNinho;
   public:
-      Nest(int a, int b, int c, int d, int e, WORD cor):energy(a),nova(b),transfere(c),PosX_n(d),PosY_n(e),corNinho(cor){
+      Nest(int a, int b, int c, int d, int e, WORD cor, char f= 'O'):energy(a),nova(b),transfere(c),PosX_n(d),PosY_n(e),corNinho(cor),avatar(f){
         ID = ++counter;
       };
       int getID() const{
