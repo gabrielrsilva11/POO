@@ -21,6 +21,7 @@ void Nest::addFormigas(int num,int x, int y,int limite){
 }
 
 
+<<<<<<< HEAD
 /*void Nest::andar(){
     int posX,posY;
     for(auto it=ants.begin();it<ants.end();it++){
@@ -36,6 +37,8 @@ void Nest::addFormigas(int num,int x, int y,int limite){
             Consola::getch();
     }
 }*/
+=======
+>>>>>>> a8bd97c6ac2f86ac1d03a0b416a802d30dbe09b6
 void Nest::andar(){
     int posX,posY;
     for(auto it=ants.begin();it<ants.end();it++){
@@ -70,3 +73,7 @@ void Nest::andar(){
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8bd97c6ac2f86ac1d03a0b416a802d30dbe09b6

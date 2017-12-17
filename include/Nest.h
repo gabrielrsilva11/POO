@@ -59,9 +59,14 @@ class Nest{
         os << "Numero de formigas: " << ants.size() << "\n" << endl;
         return os.str();
       }
+<<<<<<< HEAD
       void andar();
       void addFormigas(int num,int x, int y, int limite);
       ~Nest(){};
+=======
+      void addFormigas(int num,int x, int y);
+     //~Nest();
+>>>>>>> a8bd97c6ac2f86ac1d03a0b416a802d30dbe09b6
      WORD getColor() const{return corNinho;}
 };
 
