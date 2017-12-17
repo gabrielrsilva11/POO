@@ -10,9 +10,8 @@ class Ant{
  int energy;
  int PosX, PosY; //movimento coordenadas
  int Rvisao,Rmov; //raio de vis�o e de movimento
- int limite;
  public:
-     Ant(int a=50, int b=0, int c=0, int d=0, int e=0, char f='*', int g=0):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e),Avatar(f), limite(g){
+     Ant(int a=50, int b=0, int c=0, int d=0, int e=0, char f='*'):energy(a),PosX(b), PosY(c),Rvisao(d),Rmov(e),Avatar(f){
        ID = ++counter;
      };
      char getAvatar() const{
@@ -23,9 +22,6 @@ class Ant{
      }
      int getEnergy() const{
        return energy;
-     }
-     int getLimite() const{
-        return limite;
      }
      int getPosX() const{
        return PosX;

@@ -23,21 +23,17 @@ void Mundo::newNinho(config_t inicial, int x, int y){
 }
 
 void Mundo::addFormigas(int num, int ID , int x, int y){
-    int posx=x, posy=y;
+    int posx, posy;
     if(ninhos.empty()){
-        cout << "Ainda nao existem ninhos";
+        cout << "Ainda nao existem ninhos com formigas";
         return;
     }
   for(auto it=ninhos.begin(); it < ninhos.end(); it++){
     if((*it)->getID() == ID){
-        if(num == 1 && (verificaPos(x,y) == false)){
-            if(posx != -1 && posy != -1){
-                posx=uniform01(0,8);
-                posy=uniform01(0,8);
-            }
-            setMapa(posx,posy);
-            (*it)->addFormigas(num, posx, posy,limite);
-            Consola::gotoxy(posx,posy);
+        if(num == 1 && verificaPos(x,y) == false && x != -1 && y != -1){
+            setMapa(x,y);
+            (*it)->addFormigas(num, x, y);
+            Consola::gotoxy(x,y);
             cout << "*";
         }
         else{
@@ -47,7 +43,7 @@ void Mundo::addFormigas(int num, int ID , int x, int y){
                         posy = uniform01(0,8);
                     }while(verificaPos(posx,posy)==false);
                     setMapa(posx,posy);
-                    (*it)->addFormigas(num,posx,posy,limite);
+                    (*it)->addFormigas(num,posx,posy);
             }
         }
       return;
