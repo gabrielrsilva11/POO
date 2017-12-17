@@ -31,10 +31,15 @@ class Mundo
         void avancar(int num);
         string getInfoAntsNinho(int ID) const;
         ~Mundo(){
+            for(int i=0;i<limite;i++){
+                delete mapa[i];
+            }
+            delete[] mapa;
+
             auto i=ninhos.begin();
-            cout << "Vou destruir" << endl;
+            //cout << "Vou destruir" << endl;
                 for (; i<ninhos.end();i++){
-                    cout << "O ninho " << (*i)->getID() << " esta a ser destruido" << endl;
+                    //cout << "O ninho " << (*i)->getID() << " esta a ser destruido" << endl;
                     delete (*i);
                 }
         }

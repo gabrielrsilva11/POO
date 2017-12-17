@@ -53,7 +53,8 @@ class Ant{
      void setPosY(int add){
        PosY +=add;
      }
-     ~Ant(){};
+     ~Ant(){//cout << "Formiga a morrer" << endl;
+     };
 };
 
 class Cuidadora:public Ant{};

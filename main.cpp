@@ -34,8 +34,8 @@ int main(){
 
 
   do{
-    Consola::clrscr();
-    Consola::gotoxy(0,15);
+  Consola::clrscr();
+  Consola::gotoxy(0,15);
   cout << "Insira comando.: para sair escreva 'sair'" << endl;
   getline(cin,command);  // getline para evitar problemas com buffers
   if (command == "sair") {

@@ -61,7 +61,13 @@ class Nest{
       }
       void andar();
       void addFormigas(int num,int x, int y, int limite);
-      ~Nest(){};
+      ~Nest(){
+        auto i=ants.begin();
+            //cout << "Vou destruir formigas" << endl;
+                for (; i<ants.end();i++){
+                    //cout << "A formiga " << (*i)->getID() << " esta a ser destruidaaa" << endl;
+                    delete (*i);}
+      };
      WORD getColor() const{return corNinho;}
 };
 
