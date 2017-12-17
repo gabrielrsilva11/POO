@@ -24,8 +24,15 @@ int main(){
   cout << listaComandos(comm_list);
   }
 
-  int num = whichCommand(comm_list, command, arg);
+  int num = whichCommand(comm_list, command, arg,configs);
   cout << "Num comando " << num << endl;
+
+  cout << configs.lim << endl;
+  cout << configs.energiaLim << endl;
+  cout << configs.energiaNinho << endl;
+  cout << configs.energiaTransf << endl;
+  cout << configs.maxMigalhInst << endl;
+  cout << configs.percentMigalh << endl;
 
   }while(1);
 

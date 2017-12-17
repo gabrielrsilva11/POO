@@ -44,8 +44,8 @@ string listaComandos(const vector<string>&comm_list){
     return os.str();
 }
 
-int whichCommand(const vector<string>&comm_list, const string &command, int arg){
-    config_t inicial;
+int whichCommand(const vector<string>&comm_list, const string &command, int arg, config_t &inicial){
+    //config_t inicial;
     if (command == "defmundo")
       if(arg <= 10 && arg > 0)
         inicial.lim = arg;
@@ -67,7 +67,7 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg)
     else if (command == "defnm")
         inicial.maxMigalhInst = arg;
     else if (command == "executa")
-        leExecuta(comm_list);
+        leExecuta(comm_list,inicial);
     else if (command == "inicio")
         segundosComandos(inicial);  //só deve fazer isto se todos os outros parâmetros estiverem definidos
         return 9;
@@ -84,7 +84,7 @@ int space_count(const string& verify){
   return nspaces;
 }
 
-void leExecuta(const vector<string>&comm_list){
+void leExecuta(const vector<string>&comm_list,config_t &inicial){
   ifstream fs ("executa.txt");
   string command;
   string arg;
@@ -96,7 +96,7 @@ void leExecuta(const vector<string>&comm_list){
         cout << "Li o comando " << command << " com o argumento " << arg << endl;
         if(check_command(command,comm_list)){ //verifica se o comando existe
           if(command != "executa") // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
-            whichCommand(comm_list, command, atoi(arg.c_str())); // executa o comando lido
+            whichCommand(comm_list, command, atoi(arg.c_str()),inicial); // executa o comando lido
           else{
             cout << "Este comando nao existe";
             return;
