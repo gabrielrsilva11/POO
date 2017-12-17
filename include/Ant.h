@@ -49,7 +49,7 @@ class Ant{
      void setPosY(int add){
        PosY +=add;
      }
-     ~Ant();
+     //~Ant();
 };
 
 

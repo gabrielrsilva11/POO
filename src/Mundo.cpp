@@ -12,10 +12,10 @@ Mundo::~Mundo()
 }
 */
 void Mundo::newNinho(config_t inicial, int x, int y){
-  if(mapa[x][y]==1){
+  /*if(mapa[x][y]==1){
     cout << "Posicao ocupada" << endl;
     return;
-  }
+  }*/
   ninhos.push_back(new Nest(inicial.energiaNinho, inicial.energiaLim, inicial.energiaTransf, x, y, (Consola::AZUL)));
   /*
   PARA IMPRIMIR O NINHO NESTA POSICAO
@@ -26,7 +26,7 @@ void Mundo::newNinho(config_t inicial, int x, int y){
 void Mundo::addFormigas(int num, int ID , int x, int y){
   for(auto it=ninhos.begin(); it < ninhos.end(); it++){
     if((*it)->getID() == ID){
-      addFormigas(num, x, y);
+      (*it)->addFormigas(num, x, y);
       return;
     }
   }
@@ -45,6 +45,15 @@ string Mundo::getNinho(int ID) const{
   for(auto it=ninhos.begin(); it<ninhos.end(); it++){
     if(ID == (*it)->getID()){
       return (*it)->getInfoGeral();
+    }
+  }
+  return "O ninho com este ID nao existe";
+}
+
+string Mundo::getInfoAntsNinho(int ID) const{
+  for(auto it=ninhos.begin(); it<ninhos.end(); it++){
+    if(ID == (*it)->getID()){
+      return (*it)->getAntsInfo();
     }
   }
   return "O ninho com este ID nao existe";

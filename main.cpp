@@ -1,4 +1,15 @@
 #include "includeme.h"
+#include "Ant.h"
+#include "Nest.h"
+#include "Mundo.h"
+
+double uniform01(int upper){
+    static default_random_engine e;
+    static uniform_real_distribution<double> u(0,upper);
+
+    return u(e);
+}
+
 
 int main(){
   string command, param; //o parametro devera ser convertido para inteiro
@@ -7,6 +18,22 @@ int main(){
   comm_list=load_commands("command_mundo.txt"); //inicializa comandos
   string c, l;
   config_t configs;
+  Mundo m(10);
+  m.newNinho(configs,20,30);
+  m.newNinho(configs,40,50);
+  m.addFormigas(10,2,10,30);
+
+  //Nest b(12,20,30,40,50,(Consola::AZUL));
+
+
+
+
+  cout << m.getInfo() << endl;
+  cout << m.getNinho(1) << endl;
+  cout << m.getNinho(2) << endl;
+  cout << m.getInfoAntsNinho(2) << endl;
+
+  //cout << b.getInfoGeral() << endl;
 
 
   do{
@@ -33,6 +60,7 @@ int main(){
   cout << configs.energiaTransf << endl;
   cout << configs.maxMigalhInst << endl;
   cout << configs.percentMigalh << endl;
+
 
   }while(1);
 

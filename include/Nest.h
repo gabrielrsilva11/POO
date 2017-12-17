@@ -59,7 +59,7 @@ class Nest{
         return os.str();
       }
       void addFormigas(int num,int x, int y);
-     ~Nest();
+     //~Nest();
      WORD getColor() const{return corNinho;}
 };
 
