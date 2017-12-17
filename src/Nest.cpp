@@ -20,7 +20,7 @@ void Nest::addFormigas(int num,int x, int y){
     cout << "*";
 }
 
-
+/*
 void Nest::andar(){
     int x,y;
     for(auto it=ants.begin();it<ninhos.end();it++){
@@ -31,3 +31,4 @@ void Nest::andar(){
     }
 }
 
+*/

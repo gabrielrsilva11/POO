@@ -62,6 +62,8 @@ int main(){
   cout << configs.maxMigalhInst << endl;
   cout << configs.percentMigalh << endl;
 
+  cout << "Prximo " << endl;  // só para debugging, para vizualizar os campos já preenchidos antes de "limpar o ecrã"
+  getchar();
 
   }while(1);
 

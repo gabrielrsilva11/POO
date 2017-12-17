@@ -101,7 +101,7 @@ string Mundo::getInfoCoord(int x, int y){
 void Mundo::avancar(int num){
     for(int i=0;i<num;i++){
         for(auto it=ninhos.begin();it<ninhos.end();it++){ // vamos ter de chamar o espirito do natal para nos ajudar com isto
-            (*it)->andar();
+//            (*it)->andar();
             //(*it)->spawn() eventualmente fazer isto nao sei se isto funciona sequer.
         }
     }
