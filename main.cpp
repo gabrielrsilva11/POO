@@ -24,7 +24,7 @@ int main(){
   cout << listaComandos(comm_list);
   }
 
-  int num = whichCommand(comm_list, command, arg,configs);
+  int num = whichCommand(comm_list, command, arg, configs);
   cout << "Num comando " << num << endl;
 
   cout << configs.lim << endl;

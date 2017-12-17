@@ -13,7 +13,7 @@ class Mundo
     int **mapa;
 
     public:
-        Mundo(){
+        Mundo(int limite){
             mapa = new int*[limite];
             for(int i=0; i < limite ; i++){
                 mapa[i]= new int[limite];
@@ -28,6 +28,7 @@ class Mundo
         string getNinho(int ID) const;
         bool verificaPos(int x, int y);
         string getInfoCoord(int x, int y);
+        void avancar(int num);
     //    virtual ~Mundo();
 };
 
