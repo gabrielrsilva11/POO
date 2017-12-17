@@ -28,6 +28,7 @@ class Mundo
         string getNinho(int ID) const;
         bool verificaPos(int x, int y);
         string getInfoCoord(int x, int y);
+        void avancar(int num);
     //    virtual ~Mundo();
 };
 

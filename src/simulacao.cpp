@@ -65,6 +65,6 @@ int comandosSimul(const vector<string>&comm_list, const string &command, config_
     else if (command == "tempo"){
         cout << "Numero de iteracoes: ";
         getline(cin, arg1);
-       // avancar(atoi(arg1.c_str()));
+       a.avancar(atoi(arg1.c_str()));
     }
 }

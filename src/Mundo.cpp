@@ -69,3 +69,14 @@ string Mundo::getInfoCoord(int x, int y){
 
   return os.str();
 }
+
+void Mundo::avancar(int num){
+    for(int i=0;i<num;i++){
+        for(auto it=ninhos.begin();it<ninhos.end();it++){ // vamos ter de chamar o espirito do natal para nos ajudar com isto
+            for(auto it2=(*it)->ants.begin();(*it2)<(*it)->ants.end();it2++){ // ou fazer uma função que retorne o vetor das formigas
+                (*it2)->move();
+            }
+            //(*it)->spawn() eventualmente fazer isto nao sei se isto funciona sequer.
+        }
+    }
+}

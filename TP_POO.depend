@@ -122,3 +122,48 @@
 	"includeme.h"
 	"Mundo.h"
 
+1513474071 source:c:\users\lala\desktop\poo\main.cpp
+	"includeme.h"
+
+1513474062 c:\users\lala\desktop\poo\include\includeme.h
+	<iostream>
+	<string>
+	<algorithm>
+	<sstream>
+	<vector>
+	<fstream>
+	<random>
+	<cmath>
+	"Consola.h"
+
+1513370460 c:\users\lala\desktop\poo\include\consola.h
+	<windows.h>
+
+1513429092 source:c:\users\lala\desktop\poo\src\ant.cpp
+	"Ant.h"
+
+1513434438 c:\users\lala\desktop\poo\include\ant.h
+	"includeme.h"
+
+1513449081 source:c:\users\lala\desktop\poo\src\consola.cpp
+	"Consola.h"
+	<windows.h>
+	<stdio.h>
+
+1513370460 source:c:\users\lala\desktop\poo\src\migalha.cpp
+	"Migalha.h"
+
+1513370460 c:\users\lala\desktop\poo\include\migalha.h
+	"includeme.h"
+
+1513449081 source:c:\users\lala\desktop\poo\src\nest.cpp
+	"Nest.h"
+	"Ant.h"
+
+1513449081 c:\users\lala\desktop\poo\include\nest.h
+	"includeme.h"
+	"Ant.h"
+
+1513474083 source:c:\users\lala\desktop\poo\src\commands.cpp
+	"includeme.h"
+
