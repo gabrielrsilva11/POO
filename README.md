@@ -1,4 +1,4 @@
-# POO
+﻿# POO
 
 Repositório para o trabalho prático de POO podemos ir adicionando o que está feito e o que falta fazer aqui para manter
 uma lista moderadamente organizada.
@@ -8,9 +8,13 @@ TO DO LIST:
 
 -movimento aleatório das formigas
 
+-avanço de iteração
+
 -funções de configuração dos respectivos comandos:
 
-	executa FALTA METER ISTO A LER TUDO DE UMA LINHA SO (defmundo 10 por exemplo) mas em principio ja deve ler e executar os comandos.
+	executa FALTA METER ISTO A LER TUDO DE UMA LINHA SO (defmundo 10 por exemplo) 
+	
+	testar se o executa manda os args para os sítios certos
 
 	inicio
 
