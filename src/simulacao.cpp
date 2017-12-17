@@ -12,7 +12,7 @@ void segundosComandos(config_t inicial){
       cout << "[SIMUL]Insira comando.: para sair escreva 'sair'" << endl;
       getline(cin,command);  // getline para evitar problemas com buffers
       if (command == "sair"){
-         cout << "[SIMUL] encerrando" << endl; exit(1);
+         cout << "[SIMUL] encerrando" << endl; return;
       }
       else if(check_command(command,comm_list)==true){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
         if (command == "ninho"){
@@ -88,6 +88,7 @@ void segundosComandos(config_t inicial){
         else if (command == "tempo"){
             cout << "Numero de iteracoes: ";
             getline(cin, arg1);
+            a.avancar(atoi(arg1.c_str()));
           }
     }
   }while(1);

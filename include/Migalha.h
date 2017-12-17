@@ -9,7 +9,7 @@ class Migalha{
   int PosX, PosY;
   public:
       Migalha();
-      ~Migalha();
+      virtual ~Migalha();
 };
 
 #endif // MIGALHA_H

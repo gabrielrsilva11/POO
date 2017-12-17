@@ -30,7 +30,15 @@ class Mundo
         string getInfoCoord(int x, int y);
         void avancar(int num);
         string getInfoAntsNinho(int ID) const;
-    //    virtual ~Mundo();
+        ~Mundo(){
+            auto i=ninhos.begin();
+            cout << "Vou destruir" << endl;
+                for (; i<ninhos.end();i++){
+                    cout << "O ninho " << (*i)->getID() << " esta a ser destruido" << endl;
+                    delete (*i);
+                }
+        }
+
 };
 
 #endif // MUNDO_H
