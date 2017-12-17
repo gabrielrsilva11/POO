@@ -13,7 +13,7 @@ class Mundo
     int **mapa;
 
     public:
-        Mundo(){
+        Mundo(int limite){
             mapa = new int*[limite];
             for(int i=0; i < limite ; i++){
                 mapa[i]= new int[limite];

@@ -19,7 +19,7 @@ void segundosComandos(config_t inicial){
 }
 
 int comandosSimul(const vector<string>&comm_list, const string &command, config_t inicial){
-    Mundo a; // temp
+    Mundo a(inicial.lim); // temp
     string arg1, arg2,arg3;
     if (command == "ninho"){
         cout << "Linha: ";
