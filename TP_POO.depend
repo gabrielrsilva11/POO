@@ -126,13 +126,13 @@
 	"includeme.h"
 	"Mundo.h"
 
-1513513053 source:c:\users\lala\desktop\poo\main.cpp
+1513515096 source:c:\users\lala\desktop\poo\main.cpp
 	"includeme.h"
 	"Ant.h"
 	"Nest.h"
 	"Mundo.h"
 
-1513513046 c:\users\lala\desktop\poo\include\includeme.h
+1513515319 c:\users\lala\desktop\poo\include\includeme.h
 	<iostream>
 	<string>
 	<algorithm>
@@ -149,7 +149,7 @@
 1513429092 source:c:\users\lala\desktop\poo\src\ant.cpp
 	"Ant.h"
 
-1513509357 c:\users\lala\desktop\poo\include\ant.h
+1513515276 c:\users\lala\desktop\poo\include\ant.h
 	"includeme.h"
 
 1513449081 source:c:\users\lala\desktop\poo\src\consola.cpp
@@ -163,15 +163,16 @@
 1513370460 c:\users\lala\desktop\poo\include\migalha.h
 	"includeme.h"
 
-1513508856 source:c:\users\lala\desktop\poo\src\nest.cpp
+1513515334 source:c:\users\lala\desktop\poo\src\nest.cpp
 	"Nest.h"
 	"Ant.h"
+	"Mundo.h"
 
-1513513091 c:\users\lala\desktop\poo\include\nest.h
+1513513204 c:\users\lala\desktop\poo\include\nest.h
 	"includeme.h"
 	"Ant.h"
 
-1513511138 source:c:\users\lala\desktop\poo\src\commands.cpp
+1513513204 source:c:\users\lala\desktop\poo\src\commands.cpp
 	"includeme.h"
 
 1513505934 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\trabalho\poo-17-12\poo\main.cpp
@@ -245,7 +246,7 @@
 	"includeme.h"
 	"Mundo.h"
 
-1513513117 source:c:\users\lala\desktop\poo\src\mundo.cpp
+1513515311 source:c:\users\lala\desktop\poo\src\mundo.cpp
 	"Mundo.h"
 
 1513513075 c:\users\lala\desktop\poo\include\mundo.h
@@ -254,7 +255,7 @@
 	"Migalha.h"
 	"includeme.h"
 
-1513511606 source:c:\users\lala\desktop\poo\src\simulacao.cpp
+1513514773 source:c:\users\lala\desktop\poo\src\simulacao.cpp
 	"includeme.h"
 	"Mundo.h"
 

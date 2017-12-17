@@ -3,9 +3,9 @@
 #include "Nest.h"
 #include "Mundo.h"
 
-int uniform01(int upper){
+int uniform01(int lower, int upper){
     static default_random_engine e;
-    static uniform_int_distribution<int> u(0,upper);
+    static uniform_int_distribution<int> u(lower,upper);
 
     return u(e);
 }

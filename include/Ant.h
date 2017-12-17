@@ -52,7 +52,6 @@ class Ant{
      //~Ant();
 };
 
-
 class Cuidadora:public Ant{};
 class Vigilante:public Ant{};
 class Assaltante:public Ant{};

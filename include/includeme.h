@@ -33,6 +33,6 @@ void leExecuta(const vector<string>&comm_list,config_t &inicial);
 void segundosComandos(config_t inicial);
 //int comandosSimul(const vector<string>&comm_list, const string &command, config_t inicial);
 /* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
-int uniform01(int upper);
+int uniform01(int lower, int upper);
 
 #endif
