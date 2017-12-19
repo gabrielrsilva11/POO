@@ -32,7 +32,7 @@ class Mundo
         string getInfoAntsNinho(int ID) const;
         ~Mundo(){
             for(int i=0;i<limite;i++){
-                delete mapa[i];
+                //delete[] mapa[i]; //não está a funcionar
             }
             delete[] mapa;
 

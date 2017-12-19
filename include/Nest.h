@@ -64,9 +64,11 @@ class Nest{
       ~Nest(){
         auto i=ants.begin();
             //cout << "Vou destruir formigas" << endl;
-                for (; i<ants.end();i++){
+        for (; i<ants.end();i++){
                     //cout << "A formiga " << (*i)->getID() << " esta a ser destruidaaa" << endl;
-                    delete (*i);}
+                delete (*i);
+        }
+
       };
      WORD getColor() const{return corNinho;}
 };
