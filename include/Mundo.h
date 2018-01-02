@@ -8,22 +8,35 @@
 
 class Mundo
 {
-    int limite;
+
+    int limite = -1, energiaNinho = -1, energiaLim =-1, energiaTransf=-1;
+    int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
+
     vector <Nest*> ninhos;
     int **mapa;
 
     public:
-        Mundo(int limite){
-            mapa = new int*[limite];
-            for(int i=0; i < limite ; i++){
-                mapa[i]= new int[limite];
-            }  //n�o esquecer de fazer free
+        Mundo(){
         };
+        void criaMundo(int lim){
+            limite = lim;
+            mapa = new int*[lim];
+            for(int i=0; i < lim ; i++){
+                mapa[i]= new int[lim];
+            }  //n�o esquecer de fazer free
+        }
         void setMapa(int x,int y){
             mapa[x][y]=1;
         }
+        void setEnergNinho (int x){energiaNinho = x;}
+        void setEnergLim (int x){energiaLim = x;}
+        void setEnergTransf (int x){energiaTransf = x;}
+        void setPercentMig (int x){percentMigalh = x;}
+        void setEnergMig (int x){energiaMigalh = x;}
+        void setMaxMig (int x){maxMigalhInst = x;}
         string getInfo() const;
-        void newNinho(config_t inicial, int x, int y);
+        int getLimites() const {return limite;}
+        void newNinho( int x, int y);
         void addFormigas(int num, int ID ,int x = -1,int y = -1);
         string getNinho(int ID) const;
         bool verificaPos(int x, int y);

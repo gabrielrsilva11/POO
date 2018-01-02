@@ -36,14 +36,15 @@
 		</Compiler>
 		<Unit filename="include/Ant.h" />
 		<Unit filename="include/Consola.h" />
+		<Unit filename="include/Interface.h" />
 		<Unit filename="include/Migalha.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/Nest.h" />
-		<Unit filename="include/classes.h" />
 		<Unit filename="include/includeme.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Ant.cpp" />
 		<Unit filename="src/Consola.cpp" />
+		<Unit filename="src/Interface.cpp" />
 		<Unit filename="src/Migalha.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/Nest.cpp" />

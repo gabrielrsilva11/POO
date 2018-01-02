@@ -17,21 +17,7 @@
 
 using namespace std;
 
-typedef struct configuracao{
-    int lim = -1, energiaNinho = -1, energiaLim =-1, energiaTransf=-1;
-    int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
-}config_t;
 
-/* --- Command functions --- */
-int space_count(const string& verify);
-vector<string> load_commands(string ficheiro);
-bool check_command(const string& command,const vector<string>&list);
-bool check_existence(const string& command,const vector<string>&list);
-string listaComandos(const vector<string>&comm_list);
-int whichCommand(const vector<string>&comm_list, const string &command, int arg,config_t &inicial);
-void leExecuta(const vector<string>&comm_list,config_t &inicial);
-void segundosComandos(config_t inicial);
-//int comandosSimul(const vector<string>&comm_list, const string &command, config_t inicial);
 /* --- Uniform para aleatoriedade */ //funcoesGlobais.cpp
 int uniform01(int lower, int upper);
 

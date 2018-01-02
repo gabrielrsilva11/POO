@@ -1,6 +1,7 @@
 #include "includeme.h"
+#include "Interface.h"
 
-/* Reads commands from .txt file */
+/* Reads commands from .txt file *//*
 vector<string> load_commands(string ficheiro){
   vector<string>comm_list;
   ifstream fs;
@@ -14,8 +15,8 @@ vector<string> load_commands(string ficheiro){
   fs.close();
   return comm_list;
 }
-
-/* Takes care of everything concerning the validity of commands */
+*/
+/* Takes care of everything concerning the validity of commands *//*
 bool check_command(const string& command,const vector<string>&list){
   int spaces,exists;
 
@@ -26,24 +27,24 @@ bool check_command(const string& command,const vector<string>&list){
     return false;
 
   return true;
-}
+}*/
 
-/* Checks if the command exists in the command_list.txt file */
+/* Checks if the command exists in the command_list.txt file *//*
 bool check_existence(const string& command,const vector<string>&list){
   for(int i= 0;i<list.size();i++){
     if(command == list[i])
       return true;
   }
   return false;
-}
-
+}*/
+/*
 string listaComandos(const vector<string>&comm_list){
     ostringstream os;
     for(int i= 0;i<comm_list.size();i++) //faz um print dos comandos no vector
     os << comm_list[i] << endl;
     return os.str();
-}
-
+}*/
+/*
 int whichCommand(const vector<string>&comm_list, const string &command, int arg, config_t &inicial){
     //config_t inicial;
     if (command == "defmundo")
@@ -72,21 +73,22 @@ int whichCommand(const vector<string>&comm_list, const string &command, int arg,
         inicial.maxMigalhInst = arg;
     else if (command == "executa")
         leExecuta(comm_list,inicial);
-    else if (command == "inicio")
-        if(inicial.lim != -1 && inicial.energiaLim != -1 && inicial.energiaTransf != -1 && inicial.energiaNinho != -1){ // mais tarde temos de adicionar aqui os comandos das migalhas
-            segundosComandos(inicial);
-        }
+    else if (command == "inicio"){
+        //if(inicial.lim != -1 && inicial.energiaLim != -1 && inicial.energiaTransf != -1 && inicial.energiaNinho != -1){ // mais tarde temos de adicionar aqui os comandos das migalhas
+            Interface a;
+            a.ImprimeTexto(inicial);}//segundosComandos(inicial);
+        /*}
         else{
             Consola::clrscr();
             Consola::gotoxy(0,15);
             cout << "Ainda nao executou  todas as configuracoes iniciais\nPrima uma tecla para tentar de novo";
             Consola::getch();
-        }
-
+        }*/
+/*
     return 1;
-}
+}*/
 
-/* Counts spaces */
+/* Counts spaces *//*
 int space_count(const string& verify){
   int nspaces = 0;
 
@@ -118,3 +120,4 @@ void leExecuta(const vector<string>&comm_list,config_t &inicial){
       }
   }
 }
+*/

@@ -11,13 +11,13 @@ Mundo::~Mundo()
     //dtor
 }
 */
-void Mundo::newNinho(config_t inicial, int x, int y){
+void Mundo::newNinho( int x, int y){
   if(mapa[x][y]==1){
     cout << "Posicao ocupada" << endl;
     return;
   }
   setMapa(x,y);
-  ninhos.push_back(new Nest(inicial.energiaNinho, inicial.energiaLim, inicial.energiaTransf, x, y, (Consola::AZUL)));
+  ninhos.push_back(new Nest(energiaNinho, energiaLim, energiaTransf, x, y, (Consola::AZUL)));
     Consola::gotoxy(x,y);
     cout << "O";
 }

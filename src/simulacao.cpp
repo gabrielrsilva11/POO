@@ -1,5 +1,5 @@
 #include "includeme.h"
-#include "Mundo.h"
+#include "Mundo.h"/*
 void segundosComandos(config_t inicial){
   string command, param, arg1,arg2,arg3; //o parametro devera ser convertido para inteiro
   vector<string>comm_list;
@@ -7,8 +7,6 @@ void segundosComandos(config_t inicial){
   comm_list=load_commands("command_simul.txt");
   cout << "Iniciando simulacão " << endl;
   do{
-    Consola::clrscr();
-    Consola::gotoxy(0,15);
       cout << "[SIMUL]Insira comando.: para sair escreva 'sair'" << endl;
       getline(cin,command);  // getline para evitar problemas com buffers
       if (command == "sair"){
