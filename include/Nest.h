@@ -17,6 +17,7 @@ class Nest{
       Nest(int a, int b, int c, int d, int e, WORD cor, char f= 'O'):energy(a),nova(b),transfere(c),PosX_n(d),PosY_n(e),corNinho(cor),avatar(f){
         ID = ++counter;
       };
+    vector <Ant*> getFormigas() const {return ants;}
       int getID() const{
         return ID;
       }

@@ -18,6 +18,7 @@ class Interface
         void TamEcra(int x, int y) { Consola::setScreenSize(x,y);}
         void LimpaEcra(){ Consola::clrscr();}
         void PosiciCursor(int x, int y) { Consola::gotoxy(x,y);}
+        void corTexto (WORD color) { Consola::setTextColor(color);}
 
 
         /* Para comandos */
@@ -213,8 +214,10 @@ void ComandosSimul(Mundo &m){
   do{
      LimpaEcra();
      ImprimeMundo(m);
-
+     corTexto(Consola::CYAN_CLARO);
+    PosiciCursor(5+m.getLimites()*4,5);
       cout << "[SIMUL]Insira comando.: para sair escreva 'sair'" << endl;
+    PosiciCursor(5+m.getLimites()*4,6);
       getline(cin,command);  // getline para evitar problemas com buffers
       if (command == "sair"){
          cout << "[SIMUL] encerrando" << endl; return;
@@ -222,9 +225,13 @@ void ComandosSimul(Mundo &m){
       else if(check_command(command,comm_list)==true){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
         if (command == "ninho"){
             do{
-                cout << "Linha: ";
+                PosiciCursor(5+m.getLimites()*4,7);
+                cout << "Linha: " << endl;
+                   PosiciCursor(5+m.getLimites()*4,8);
                 getline(cin, arg1);
-                cout << "\nColuna: ";
+                    PosiciCursor(5+m.getLimites()*4,9);
+                cout << "Coluna: " << endl;
+                    PosiciCursor(5+m.getLimites()*4,10);
                 getline(cin, arg2);
             }while(atoi(arg1.c_str()) >= 10 || atoi(arg2.c_str()) >= 10 || atoi(arg1.c_str()) < 0 || atoi(arg2.c_str()) < 0);
             Consola::clrscr();
@@ -303,14 +310,42 @@ void ComandosSimul(Mundo &m){
 
         void ImprimeMundo(const Mundo &m){
            int lim = m.getLimites();
-          for (int i = 0; i< lim; i++) {
-            for (int j = 0; j<lim; j++) {
-			Consola::gotoxy(20 + j * 3, 9 + i * 2);
-			cout << "A";
-		}
+           corTexto(Consola::COR_DE_ROSA);
+            for (int i = 0; i< lim; i++) {
+                for (int j = 0; j<lim; j++) {
+                PosiciCursor(5 + j * 3, 5 + i * 2);
+                cout << "A";
+                }
+            }
+            ImprimeNinho(m.getNinhos());
         }
 
+        void ImprimeNinho (const vector <Nest*> &ninhos){
+            int PosX, PosY;
+            for(auto it=ninhos.begin(); it<ninhos.end(); it++){
+                corTexto(Consola::AMARELO);
+                PosX =(*it)->getPosX();
+                PosY =(*it)->getPosY();
+                PosiciCursor(5 + PosY * 3, 5 + PosX * 2);
+                cout << (*it)->getAvatar();
+                corTexto(Consola::VERMELHO);
+                ImprimeFormigas((*it)->getFormigas());
+            }
+
+
         }
+
+        void ImprimeFormigas (const vector <Ant*> &formigas){
+            int PosX, PosY;
+            for(auto it=formigas.begin(); it<formigas.end(); it++){
+                PosX =(*it)->getPosX();
+                PosY =(*it)->getPosY();
+                PosiciCursor(5 + PosY * 3, 5 + PosX * 2);
+                cout << (*it)->getAvatar();
+            }
+
+        }
+
 
 };
 

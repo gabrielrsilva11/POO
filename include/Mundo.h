@@ -42,6 +42,7 @@ class Mundo
         bool verificaPos(int x, int y);
         string getInfoCoord(int x, int y);
         void avancar(int num);
+        vector <Nest*> getNinhos() const {return ninhos;}
         string getInfoAntsNinho(int ID) const;
         ~Mundo(){
             for(int i=0;i<limite;i++){
