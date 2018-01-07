@@ -74,10 +74,10 @@
 1513429092 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\ant.cpp
 	"Ant.h"
 
-1513434438 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\ant.h
+1513532837 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\ant.h
 	"includeme.h"
 
-1513505934 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\includeme.h
+1514908159 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\includeme.h
 	<iostream>
 	<string>
 	<algorithm>
@@ -99,33 +99,39 @@
 1513370460 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\migalha.cpp
 	"Migalha.h"
 
-1513370460 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\migalha.h
+1513530576 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\migalha.h
 	"includeme.h"
 
-1513505934 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\main.cpp
+1514908187 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\main.cpp
 	"includeme.h"
+	"Ant.h"
+	"Nest.h"
+	"Mundo.h"
+	"Interface.h"
 
-1513505934 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\commands.cpp
+1514830139 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\commands.cpp
 	"includeme.h"
+	"Interface.h"
 
-1513449081 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\nest.cpp
+1513526700 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\nest.cpp
 	"Nest.h"
 	"Ant.h"
+	"Mundo.h"
 
-1513449081 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\nest.h
+1515077787 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\nest.h
 	"includeme.h"
 	"Ant.h"
 
-1513505955 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\mundo.cpp
+1514907698 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\mundo.cpp
 	"Mundo.h"
 
-1513474637 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\mundo.h
+1515076990 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\mundo.h
 	"Nest.h"
 	"Ant.h"
 	"Migalha.h"
 	"includeme.h"
 
-1513505963 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\simulacao.cpp
+1514830139 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\simulacao.cpp
 	"includeme.h"
 	"Mundo.h"
 
@@ -271,4 +277,14 @@
 	"Ant.h"
 	"Nest.h"
 	"Migalha.h"
+
+1515078001 d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\include\interface.h
+	"includeme.h"
+	"Mundo.h"
+	"Ant.h"
+	"Nest.h"
+	"Migalha.h"
+
+1514657464 source:d:\documentos\engenharia informática\2ºano\programação orientada a objectos\poo_git\poo\src\interface.cpp
+	"Interface.h"
 

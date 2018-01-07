@@ -14,7 +14,6 @@ TO DO LIST:
 
 	executa FALTA METER ISTO A LER TUDO DE UMA LINHA SO (defmundo 10 por exemplo) 
 	
-	testar se o executa manda os args para os sítios certos
 
 	inicio
 
