@@ -10,11 +10,11 @@
 class Interface
 {
 
-        Mundo m; //assumindo que só vai existir um mundo de cada vez;
+        vector <Mundo*> m;
     public:
         Interface();
         virtual ~Interface();
-        /* Funções básicas */
+        /* Funï¿½ï¿½es bï¿½sicas */
         void TamEcra(int x, int y) { Consola::setScreenSize(x,y);}
         void LimpaEcra(){ Consola::clrscr();}
         void PosiciCursor(int x, int y) { Consola::gotoxy(x,y);}
@@ -39,7 +39,7 @@ class Interface
         }
 
 
-        /* Pede um comando ao utilizador e verifica se é válido*/
+        /* Pede um comando ao utilizador e verifica se ï¿½ vï¿½lido*/
         int SolicitaComando(const vector<string>&comm_list, Mundo &m){
             string command, param; //o parametro devera ser convertido para inteiro
             int arg;
@@ -67,7 +67,7 @@ class Interface
                     getchar();
                  }
 
-                  if (command != "executa" && command != "inicio" && command != "help"){ // se for executa ou inicio não vale a pena estar a pedir parâmetros
+                  if (command != "executa" && command != "inicio" && command != "help"){ // se for executa ou inicio nï¿½o vale a pena estar a pedir parï¿½metros
                       PosiciCursor(5,7);
                       cout << "Insira parametro.: " << endl; //vamos ter de passar isto para ler o comando todo de uma vez como em SO
                       getline(cin,param);
@@ -89,14 +89,14 @@ class Interface
 
         }
 
-        /* Verifica se um comando é válido */
+        /* Verifica se um comando ï¿½ vï¿½lido */
         bool check_command(const string& command,const vector<string>&list){
           int spaces,exists;
 
-          if((spaces = space_count(command))!=0) //primeiro conta os espaços
+          if((spaces = space_count(command))!=0) //primeiro conta os espaï¿½os
             return false;
 
-          if ((exists = check_existence(command,list))==false) //depois vê se existe
+          if ((exists = check_existence(command,list))==false) //depois vï¿½ se existe
             return false;
 
           return true;
@@ -123,7 +123,7 @@ class Interface
           return nspaces;
         }
 
-        /* Apresenta na consola os comandos disponíveis */
+        /* Apresenta na consola os comandos disponï¿½veis */
         int listaComandos(const vector<string>&comm_list){
             //ostringstream os;
             int i;
@@ -166,7 +166,7 @@ class Interface
             m.setMaxMig(arg);
         else if (command == "executa")
             leExecuta(comm_list,m);
-        else if (command == "inicio"){ //descomentar para validar se os parâmetros foram todos inseridos
+        else if (command == "inicio"){ //descomentar para validar se os parï¿½metros foram todos inseridos
             //if(inicial.lim != -1 && inicial.energiaLim != -1 && inicial.energiaTransf != -1 && inicial.energiaNinho != -1){ // mais tarde temos de adicionar aqui os comandos das migalhas
                 LimpaEcra();
                 ComandosSimul(m);}
@@ -205,12 +205,12 @@ class Interface
           }
         }
 
-        /* Funções para simulação */
+        /* Funï¿½ï¿½es para simulaï¿½ï¿½o */
 void ComandosSimul(Mundo &m){
   string command, param, arg1,arg2,arg3; //o parametro devera ser convertido para inteiro
   vector<string>comm_list;
   comm_list=load_commands("command_simul.txt");
-  cout << "Iniciando simulacão " << endl;
+  cout << "Iniciando simulacï¿½o " << endl;
   do{
      LimpaEcra();
      ImprimeMundo(m);
@@ -222,7 +222,7 @@ void ComandosSimul(Mundo &m){
       if (command == "sair"){
          cout << "[SIMUL] encerrando" << endl; return;
       }
-      else if(check_command(command,comm_list)==true){ // agora falta fazer o "which command das simulações basicamente e as funções respetivas.
+      else if(check_command(command,comm_list)==true){ // agora falta fazer o "which command das simulaï¿½ï¿½es basicamente e as funï¿½ï¿½es respetivas.
         if (command == "ninho"){
             do{
                 PosiciCursor(5+m.getLimites()*4,7);

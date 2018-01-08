@@ -37,8 +37,6 @@ void Mundo::addFormigas(int num, int ID , int x, int y){
             }
             setMapa(posx,posy);
             (*it)->addFormigas(num, posx, posy,limite);
-            Consola::gotoxy(posx,posy);
-            cout << "*";
         }
         else{
             for(int i=0; i < num; i++){
@@ -109,4 +107,50 @@ void Mundo::avancar(int num){
             //(*it)->spawn() eventualmente fazer isto nao sei se isto funciona sequer.
         }
     }
+}
+
+void Mundo::MigalhasIniciais(int percInicial, int energiaInic){
+  int nMigalhas = ((limite * limite)*percInicial);
+  int posX, posY;
+
+  while(nMigalhas != 0){
+    do{
+      posx = uniform01(0,getLimites());
+      posy = uniform01(0,getLimites());
+    }while(verificaPos(posx,posy)==false);
+    migalhas.push_back(new Migalha(energiaInic, posx, posy));
+    setMapa(posx,posy);
+    nMigalhas--;
+  }
+}
+
+void Mundo::SpawnMigalha(){
+  int nMigalhas = uniform01(0,getMaxMigalhInst());
+
+  while(nMigalhas != 0){
+    do{
+      posx = uniform01(0,getLimites());
+      posy = uniform01(0,getLimites());
+    }while(verificaPos(posx,posy)==false);
+    migalhas.push_back(new Migalha(energiaInic, posx, posy));
+    setMapa(posx,posy);
+    nMigalhas--;
+  }
+}
+
+Migalha* Mundo::getMigalhaElemento(int i){
+  return migalhas[i];
+}
+
+void Mundo::apagaMigalha(int i){
+  migalhas.erase(migalhas.begin()+i);
+}
+
+void Mundo::removeMigalhas(){
+  for(int i = 0; i < getMigalhasSize(); i++){
+    if(getMigalhaElemento(i) -> checkDestroy()== true){
+      removeMapa(getMigalhaElemento(i)->getPosX(), getMigalhaElemento(i)->getPosY())
+      apagaMigalha(i);
+    }
+  }
 }

@@ -11,7 +11,7 @@ class Mundo
 
     int limite = -1, energiaNinho = -1, energiaLim =-1, energiaTransf=-1;
     int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
-
+    vector <Migalha*> migalhas;
     vector <Nest*> ninhos;
     int **mapa;
 
@@ -28,12 +28,18 @@ class Mundo
         void setMapa(int x,int y){
             mapa[x][y]=1;
         }
+        void removeMapa(int x,int y){
+          mapa[x][y]=0;
+        }
         void setEnergNinho (int x){energiaNinho = x;}
         void setEnergLim (int x){energiaLim = x;}
         void setEnergTransf (int x){energiaTransf = x;}
         void setPercentMig (int x){percentMigalh = x;}
         void setEnergMig (int x){energiaMigalh = x;}
         void setMaxMig (int x){maxMigalhInst = x;}
+        int getMaxMigalhInst() const{
+          return maxMigalhInst;
+        }
         string getInfo() const;
         int getLimites() const {return limite;}
         void newNinho( int x, int y);
@@ -44,6 +50,11 @@ class Mundo
         void avancar(int num);
         vector <Nest*> getNinhos() const {return ninhos;}
         string getInfoAntsNinho(int ID) const;
+        void MigalhasIniciais(int percInicial, int energiaInic);
+        void SpawnMigalha();
+        Migalha* getMigalhaElemento(int i);
+        void apagaMigalha(int i);
+        void removeMigalha();
         ~Mundo(){
             for(int i=0;i<limite;i++){
                 //delete[] mapa[i]; //não está a funcionar
