@@ -11,45 +11,40 @@ Mundo::~Mundo()
     //dtor
 }
 */
-void Mundo::newNinho( int x, int y){
-  if(mapa[x][y]==1){
-    cout << "Posicao ocupada" << endl;
-    return;
-  }
-  setMapa(x,y);
-  ninhos.push_back(new Nest(energiaNinho, energiaLim, energiaTransf, x, y, (Consola::AZUL)));
-    Consola::gotoxy(x,y);
-    cout << "O";
+void Mundo::newNinho( int linha, int coluna){
+  ninhos.push_back(new Nest(energiaNinho, energiaLim, energiaTransf, linha, coluna, (Consola::AZUL)));
 }
 
-void Mundo::addFormigas(int num, int ID , int x, int y){
-    int posx=x, posy=y;
+void Mundo::addFormigas(int num, int ID , int linha, int coluna){
+    int posx=coluna, posy=linha,i;
+    int adicionadas=0, ocupada = 0;
     if(ninhos.empty()){
-        cout << "Ainda nao existem ninhos";
+        cout << "Ainda nao existem ninhos. Prima uma tecla para continuar";
+        getchar();
         return;
     }
+
+
   for(auto it=ninhos.begin(); it < ninhos.end(); it++){
     if((*it)->getID() == ID){
-        if(num == 1 && (verificaPos(x,y) == false)){
-            if(posx != -1 && posy != -1){
-                posx=uniform01(0,8);
-                posy=uniform01(0,8);
+        do{
+            ocupada = 0;
+            posx = uniform01(0,limite-1);
+            posy = uniform01(0,limite-1);
+            for(auto ij=ninhos.begin();ij <ninhos.end(); ij++){
+                cout << posx << posy << endl;
+                if((*ij)->verificaPos(posy,posx) == true) //false se estiver livre
+                    ocupada = 1;
+                if((*ij)->verificaPosFormigas(posy, posx))
+                    ocupada = 1;
             }
-            setMapa(posx,posy);
-            (*it)->addFormigas(num, posx, posy,limite);
-        }
-        else{
-            for(int i=0; i < num; i++){
-                    do{
-                        posx = uniform01(0,8);
-                        posy = uniform01(0,8);
-                    }while(verificaPos(posx,posy)==false);
-                    setMapa(posx,posy);
-                    (*it)->addFormigas(num,posx,posy,limite);
+            if(ocupada == 0){
+                (*it)->addFormigas(num, posy, posx,limite);
+                adicionadas++;
             }
-        }
-      return;
+        }while(adicionadas < num);
     }
+    return;
   }
 }
 
@@ -80,17 +75,12 @@ string Mundo::getInfoAntsNinho(int ID) const{
   return "O ninho com este ID nao existe";
 }
 
-bool Mundo::verificaPos(int x, int y){
-  if(mapa[x][y] == 1)
-    return false;
-  else
-    return true;
-}
+
 
 string Mundo::getInfoCoord(int x, int y){
   ostringstream os;
   for(auto it=ninhos.begin();it < ninhos.end() ; it++){
-    if((*it)->getPosX() == x && (*it)->getPosY() == y)
+    if((*it)->getColuna() == x && (*it)->getLinha() == y)
       return (*it)->getInfoGeral();
     else{
 
@@ -100,40 +90,54 @@ string Mundo::getInfoCoord(int x, int y){
   return os.str();
 }
 
-void Mundo::avancar(int num){
+void Mundo::iteracoes(int num=1){
+        int ocupada, posx, posy;
+            while(1){
+            ocupada = 0;
+            posx = uniform01(0,limite-1);
+            posy = uniform01(0,limite-1);
+
+            for(auto ij=ninhos.begin();ij <ninhos.end(); ij++){
+                cout << posx << posy << endl;
+                if((*ij)->verificaPos(posy,posx) == true) //false se estiver livre
+                    ocupada = 1;
+                if((*ij)->verificaPosFormigas(posy, posx))
+                    ocupada = 1;
+            }
+            }
+
     for(int i=0;i<num;i++){
         for(auto it=ninhos.begin();it<ninhos.end();it++){ // vamos ter de chamar o espirito do natal para nos ajudar com isto
-            (*it)->andar();
+            (*it)->andar(limite);
             //(*it)->spawn() eventualmente fazer isto nao sei se isto funciona sequer.
         }
     }
 }
+
 
 void Mundo::MigalhasIniciais(int percInicial, int energiaInic){
   int nMigalhas = ((limite * limite)*percInicial);
   int posX, posY;
 
   while(nMigalhas != 0){
-    do{
-      posx = uniform01(0,getLimites());
-      posy = uniform01(0,getLimites());
-    }while(verificaPos(posx,posy)==false);
-    migalhas.push_back(new Migalha(energiaInic, posx, posy));
-    setMapa(posx,posy);
+   /* do{
+      posX = uniform01(0,getLimites());
+      posY = uniform01(0,getLimites());
+    }while(verificaPos(posX,posY)==false);*/
+    migalhas.push_back(new Migalha(energiaInic, posX, posY));
     nMigalhas--;
   }
 }
 
 void Mundo::SpawnMigalha(){
-  int nMigalhas = uniform01(0,getMaxMigalhInst());
+  int nMigalhas = uniform01(0,getMaxMigalhInst()), posx,posy;
 
   while(nMigalhas != 0){
-    do{
+   /* do{
       posx = uniform01(0,getLimites());
       posy = uniform01(0,getLimites());
-    }while(verificaPos(posx,posy)==false);
-    migalhas.push_back(new Migalha(energiaInic, posx, posy));
-    setMapa(posx,posy);
+    }while(verificaPos(posx,posy)==false);*/
+    migalhas.push_back(new Migalha(energiaMigalh, posx, posy));
     nMigalhas--;
   }
 }
@@ -146,10 +150,9 @@ void Mundo::apagaMigalha(int i){
   migalhas.erase(migalhas.begin()+i);
 }
 
-void Mundo::removeMigalhas(){
+void Mundo::removeMigalha(){
   for(int i = 0; i < getMigalhasSize(); i++){
     if(getMigalhaElemento(i) -> checkDestroy()== true){
-      removeMapa(getMigalhaElemento(i)->getPosX(), getMigalhaElemento(i)->getPosY())
       apagaMigalha(i);
     }
   }

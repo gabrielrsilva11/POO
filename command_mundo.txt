@@ -7,4 +7,3 @@ defme
 defnm
 executa
 inicio
-help

@@ -11,55 +11,63 @@ class Mundo
 
     int limite = -1, energiaNinho = -1, energiaLim =-1, energiaTransf=-1;
     int percentMigalh=-1, energiaMigalh=-1, maxMigalhInst=-1;
-    vector <Migalha*> migalhas;
+
     vector <Nest*> ninhos;
-    int **mapa;
+    vector <Migalha*> migalhas;
+
 
     public:
         Mundo(){
         };
         void criaMundo(int lim){
             limite = lim;
-            mapa = new int*[lim];
+            /*mapa = new int*[lim];
             for(int i=0; i < lim ; i++){
                 mapa[i]= new int[lim];
             }  //n�o esquecer de fazer free
+            for (int i=0; i < lim ; i++){
+                for (int j=0; j<lim; j++)
+                    mapa[i][j]=0;*/
+         //   }
         }
-        void setMapa(int x,int y){
+       /* void setMapa(int x,int y){
             mapa[x][y]=1;
-        }
-        void removeMapa(int x,int y){
-          mapa[x][y]=0;
-        }
+        }*/
         void setEnergNinho (int x){energiaNinho = x;}
         void setEnergLim (int x){energiaLim = x;}
         void setEnergTransf (int x){energiaTransf = x;}
         void setPercentMig (int x){percentMigalh = x;}
         void setEnergMig (int x){energiaMigalh = x;}
         void setMaxMig (int x){maxMigalhInst = x;}
-        int getMaxMigalhInst() const{
+       int getMaxMigalhInst() const{
           return maxMigalhInst;
         }
+        int getEnergNinho (){return energiaNinho;}
+        int getEnergLim (){ return energiaLim;}
+        int getEnergTransf (){ return energiaTransf;}
+        int getPercentMig (){return percentMigalh;}
+        int getEnergMig (){return energiaMigalh;}
+        int getMaxMig (){return maxMigalhInst;}
         string getInfo() const;
         int getLimites() const {return limite;}
         void newNinho( int x, int y);
-        void addFormigas(int num, int ID ,int x = -1,int y = -1);
+        void addFormigas(int num, int ID ,int linha = -1,int coluna = -1);
         string getNinho(int ID) const;
-        bool verificaPos(int x, int y);
+
         string getInfoCoord(int x, int y);
-        void avancar(int num);
-        vector <Nest*> getNinhos() const {return ninhos;}
-        string getInfoAntsNinho(int ID) const;
+
         void MigalhasIniciais(int percInicial, int energiaInic);
         void SpawnMigalha();
         Migalha* getMigalhaElemento(int i);
         void apagaMigalha(int i);
         void removeMigalha();
+        int getMigalhasSize() {return migalhas.size();}
+        void iteracoes(int num);
+
+
+        vector <Nest*> getNinhos() const {return ninhos;}
+        string getInfoAntsNinho(int ID) const;
         ~Mundo(){
-            for(int i=0;i<limite;i++){
-                //delete[] mapa[i]; //não está a funcionar
-            }
-            delete[] mapa;
 
             auto i=ninhos.begin();
             //cout << "Vou destruir" << endl;

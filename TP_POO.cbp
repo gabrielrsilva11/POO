@@ -40,6 +40,8 @@
 		<Unit filename="include/Migalha.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/Nest.h" />
+		<Unit filename="include/Posicao.h" />
+		<Unit filename="include/Regras.h" />
 		<Unit filename="include/includeme.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Ant.cpp" />
@@ -48,11 +50,8 @@
 		<Unit filename="src/Migalha.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/Nest.cpp" />
-		<Unit filename="src/commands.cpp" />
-		<Unit filename="src/funcoesGlobais.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="src/simulacao.cpp" />
+		<Unit filename="src/Posicao.cpp" />
+		<Unit filename="src/Regras.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

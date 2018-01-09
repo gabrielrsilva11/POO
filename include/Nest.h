@@ -5,16 +5,17 @@
 #include "Ant.h"
 
 
+
 class Nest{
   static int counter;
   char avatar;
   int ID;
   int energy, nova, transfere;
   vector <Ant*> ants;
-  int PosX_n, PosY_n;
+  Posicao posicao;
   WORD corNinho;
   public:
-      Nest(int a, int b, int c, int d, int e, WORD cor, char f= 'O'):energy(a),nova(b),transfere(c),PosX_n(d),PosY_n(e),corNinho(cor),avatar(f){
+      Nest(int a, int b, int c, int d, int e, WORD cor, char f= 'O'):energy(a),nova(b),transfere(c),posicao(d,e),corNinho(cor),avatar(f){
         ID = ++counter;
       };
     vector <Ant*> getFormigas() const {return ants;}
@@ -30,11 +31,11 @@ class Nest{
       int getTransfere() const{
         return transfere;
       }
-      int getPosX() const{
-        return PosX_n;
+      int getLinha() const{
+        return posicao.getLinha();
       }
-      int getPosY() const{
-        return PosY_n;
+      int getColuna() const{
+        return posicao.getColuna();
       }
       char getAvatar() const{
         return avatar;
@@ -52,16 +53,19 @@ class Nest{
       string getInfoGeral() const{
         ostringstream os;
         os << "Ninho " << getID() << endl;
-        os << "Posicao: " << getPosX() << " " << getPosY() << endl;
+        os << "Posicao: " << getLinha() << " " << getColuna() << endl;
         os << "---Informacoes gerais---" << endl;
         os << "Energia: " << getEnergy()<< endl;
         os << "Nova: " << getNova() << endl;
         os << "Transferencia: " << getTransfere() << endl;
         os << "Numero de formigas: " << ants.size() << "\n" << endl;
+        os << getAntsInfo();
         return os.str();
       }
-      void andar();
-      void addFormigas(int num,int x, int y, int limite);
+      void andar(int limite);
+
+      void addFormigas(int num,int linha, int coluna, int limite);
+
       ~Nest(){
         auto i=ants.begin();
             //cout << "Vou destruir formigas" << endl;
@@ -71,6 +75,19 @@ class Nest{
         }
 
       };
+
+      bool verificaPos(int linh, int col){
+        return posicao.verficaPos(linh,col);
+      }
+
+      bool verificaPosFormigas(int linh, int col){
+        for(auto it=ants.begin(); it < ants.end();it++){
+                if((*it)->verificaPos(linh,col))
+                    return true;
+
+        }
+      return false;
+      }
      WORD getColor() const{return corNinho;}
 };
 

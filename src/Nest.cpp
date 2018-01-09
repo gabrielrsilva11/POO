@@ -14,59 +14,61 @@ Nest::~Nest()
 }*/
 int Nest::counter=0; //para evitar o multiple definition no .h
 
-void Nest::addFormigas(int num,int x, int y,int limite){
-    ants.push_back(new Ant(50, x, y,10,8,'*', limite));
-    Consola::gotoxy(x,y);
-    cout << "*";
+void Nest::addFormigas(int num,int linha, int coluna,int limite){
+    ants.push_back(new Ant(50, linha, coluna,10,8,'*', limite));
+
 }
 
+void Nest::andar(int limite){
+       int posX,posY;
 
-/*void Nest::andar(){
-    int posX,posY;
+   // int posX,posY;
     for(auto it=ants.begin();it<ants.end();it++){
-        do{
-            posX=uniform01(-8,8);
-            posY=uniform01(-8+posX,8-posX);
-            cout << (*it)->getPosX()+posX << "   " << (*it)->getPosY()+posY << endl;
-        }while((*it)->getPosX()+posX < (*it)->getLimite() && (*it)->getPosY()+posY < (*it)->getLimite() && (*it)->getPosX()+posX > 0 && (*it)->getPosX()+posX > 0);
-            (*it)->setPosX((*it)->getPosX()+posX);
-            (*it)->setPosY((*it)->getPosY()+posY);
-            Consola::gotoxy((*it)->getPosX()+posX,(*it)->getPosY()+posY);
-            cout << "*";
-            Consola::getch();
-    }
-}*/
-void Nest::andar(){
-    int posX,posY;
-    for(auto it=ants.begin();it<ants.end();it++){
-        posX=uniform01(0,8);
-        posY=uniform01(0,8);
 
-        if(uniform01(0,100)< 50){
-            posX = (*it)->getPosX() + posX;
-            posX = (*it)->getPosY() + posY;
-            if(posX>(*it)->getLimite())
+            int random=uniform01(0,100);
+
+        if(random< 50){
+
+            (*it)->setColuna(uniform01(0,8),limite);
+            posX=uniform01(0,8);
+            posY=uniform01(0,8);
+            //posX = (*it)->getColuna() + posX;
+            //posY = (*it)->getLinha() + posY;
+            if(posX >=(*it)->getLimite())
                 posX=(*it)->getLimite()-1;
-            if(posY>(*it)->getLimite())
+            if(posY >=(*it)->getLimite())
                 posY=(*it)->getLimite()-1;
-            (*it)->setPosX(posX);
-            (*it)->setPosY(posY);
-            Consola::gotoxy(posX,posY);
-            cout << "*";
-            Consola::getch();
+           // if(mapa [posX][posY] == 0){
+                (*it)->setColuna(posX,limite-1);
+                (*it)->setLinha(posY,limite-1);
+                // mapa [posX][posY] == 1;
+            //}
+
+            //Consola::gotoxy(posX,posY);
+            //cout << "*";
+            //Consola::getch();
         }
         else{
-            posX = (*it)->getPosX() - posX;
-            posX = (*it)->getPosY() - posY;
+
+            posX=uniform01(-8,0);
+            posY=uniform01(-8,0);
+            //posX = (*it)->getColuna() - posX;
+            //posY = (*it)->getLinha() - posY;
             if(posX<0)
                 posX=0;
             if(posY<0)
                 posY=0;
-            (*it)->setPosX(posX);
-            (*it)->setPosY(posY);
-            Consola::gotoxy(posX,posY);
-            cout << "*";
-            Consola::getch();
+            //if(mapa [posX][posY] == 0){
+                (*it)->setColuna(posX,limite-1);
+                (*it)->setLinha(posY,limite-1);
+                //mapa[posX][posY] == 1;
+            //}
+            //Consola::gotoxy(posX,posY);
+            //cout << "*";
+            //Consola::getch();
         }
+       // }while (posX >= limite || posY >= limite );
     }
+
+//    return mapa;
 }

@@ -3,17 +3,18 @@
 
 #include "includeme.h"
 
+
 class Migalha{
   static int counter;
   int ID;
   int energy;
   int energyAtual;
-  int PosX, PosY;
+  Posicao posicao;
   public:
-      Migalha(int a, int b , int c):energy(a),PosX(b),PosY(c){
+      Migalha(int a, int li , int col):energy(a),posicao(li,col){
         ID = ++counter;
         energyAtual = energy;
-      };
+      }
       void setEnergyAtual(int x){
         energyAtual += x;
       }
@@ -22,11 +23,11 @@ class Migalha{
           return true;
         return false;
       }
-      int getPosX() const{
-        return PosX;
+      int getLinha() const{
+        return posicao.getLinha();
       }
-      int getPosY() const{
-        return PosY;
+      int getColuna() const{
+        return posicao.getColuna();
       }
       int getID() const{
         return ID;
@@ -34,11 +35,12 @@ class Migalha{
       int getEnergyAtual() const{
         return energyAtual;
       }
-      int getInfo() const{
+      string getInfo() const{
         ostringstream os;
-        oss << "ID: " << getID() << " Energia Atual: " << getEnergyAtual() << " Posx: " << getPosX() << " PosY: " << getPosY() << endl;
+        os << "ID: " << getID() << " Energia Atual: " << getEnergyAtual() << " Linha: " << getLinha() << " Coluna: " << getColuna() << endl;
+        return os.str();
       }
-      virtual ~Migalha();
+      virtual ~Migalha(){};
 };
 
 

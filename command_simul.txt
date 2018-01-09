@@ -5,4 +5,4 @@ tempo
 listamundo
 listaninho
 listaposicao
-help
+executa

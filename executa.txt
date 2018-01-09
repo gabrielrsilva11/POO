@@ -1,2 +1,1 @@
-defmundo
-5
+defmundo 10
