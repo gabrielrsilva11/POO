@@ -32,7 +32,7 @@ void Mundo::addFormigas(int num, int ID , int linha, int coluna){
             posx = uniform01(0,limite-1);
             posy = uniform01(0,limite-1);
             for(auto ij=ninhos.begin();ij <ninhos.end(); ij++){
-                cout << posx << posy << endl;
+                //cout << posx << posy << endl;
                 if((*ij)->verificaPos(posy,posx) == true) //false se estiver livre
                     ocupada = 1;
                 if((*ij)->verificaPosFormigas(posy, posx))
@@ -44,8 +44,8 @@ void Mundo::addFormigas(int num, int ID , int linha, int coluna){
             }
         }while(adicionadas < num);
     }
-    return;
   }
+   return;
 }
 
 string Mundo::getInfo() const{

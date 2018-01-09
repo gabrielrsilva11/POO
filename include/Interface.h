@@ -65,7 +65,9 @@ class Interface
                 cout << "Comando invalido" << endl;
               }
              else {
-
+                    if (command == "executa"){
+                        leExecuta(comm_list,m,param);
+                    }
                   if (command != "executa" && command != "inicio"){ // se for executa ou inicio não vale a pena estar a pedir parâmetros
                       PosiciCursor(5,7);
                      // cout << "Insira parametro.: " << endl; //vamos ter de passar isto para ler o comando todo de uma vez como em SO
@@ -117,7 +119,7 @@ class Interface
         }
 
         /* Apresenta na consola os comandos disponíveis */
-        void listaComandos(const vector<string>&comm_list){
+  void listaComandos(const vector<string>&comm_list){
             //ostringstream os;
             corTexto(Consola::BRANCO);
             PosiciCursor(64,17);
@@ -147,7 +149,7 @@ class Interface
         }
 
 
-        void whichCommand(const vector<string>&comm_list, const string &command, const string &arg, Mundo &m){
+void whichCommand(const vector<string>&comm_list, const string &command, const string &arg, Mundo &m){
       //  config_t inicial;
         if (command == "defmundo")
           if(atoi(arg.c_str()) <= 10 && atoi(arg.c_str()) > 0){
@@ -175,9 +177,9 @@ class Interface
             m.setEnergMig(atoi(arg.c_str()));
         else if (command == "defnm")
             m.setMaxMig(atoi(arg.c_str()));
-        else if (command == "executa"){
+        /*else if (command == "executa"){
             leExecuta(comm_list,m,arg);
-        }
+        }*/
         else if (command == "inicio"){ //descomentar para validar se os parâmetros foram todos inseridos
             //if(m.getLimites() != -1 && m.getEnergLim() != -1 && m.getEnergTransf() != -1 && m.getEnergNinho() != -1){ // mais tarde temos de adicionar aqui os comandos das migalhas
                 LimpaEcra();
@@ -206,6 +208,8 @@ class Interface
               istringstream iss(arg);
               iss >> (arg1); //quant
               getline(iss,arg2); //id ninho
+              //cout << arg1 << arg2 << endl;
+              //getchar();
             m.addFormigas(atoi(arg1.c_str()), atoi(arg2.c_str())); //  falta meter a imprimir
         }
         else if (command == "cria1"){
@@ -260,30 +264,38 @@ class Interface
 }
         /* Executa os comandos em ficheiro de texto*/
 int leExecuta(const vector<string>&comm_list,Mundo &m,const string nome){
-          ifstream fs (nome);
+          ifstream fs(nome);
+
           string comando, command;
           string params;
 
           if(fs.is_open()){
 
-              while(getline(fs,comando)){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
+              while(fs.good()){ // temos de meter isto tudo numa linha mas sem os fscanf nao sei como se faz em c++
                     // getline para evitar problemas com buffers
+              getline(fs,comando);
               istringstream iss(comando);
               iss >> (command);
               getline (iss,params);
                 if(check_command(command,comm_list)){ //verifica se o comando existe
                   if(command != "executa"){ // nao queremos entrar num loop infinito se estiver sempre a chamar "executa"
                     whichCommand(comm_list, command, params,m); // executa o comando lido
-                    return 1;
+
                   }
                   else{
                     cout << "Este comando nao existe" << command << endl;
-                    return 0;
+
                   }
                 }
               }
           }
-        }
+          else {
+            fs.close();
+            return 0;
+          }
+          fs.close();
+          return 1;
+}
 
         /* Funções para simulação */
 void ComandosSimul(Mundo &m){
@@ -302,14 +314,15 @@ void ComandosSimul(Mundo &m){
       getline(cin,comando);
         istringstream iss(comando);
         iss >> (command);
-        getline(iss,param);
-        arg = param;
+
+
     // getline para evitar problemas com buffers
       if (command == "sair"){
          cout << "[SIMUL] encerrando" << endl; return;
       }
       if (command == "executa"){
-        leExecuta(comm_list,m,arg);
+            iss >> (param);
+            leExecuta(comm_list,m,param);
       }
     /* if(check_command(command,comm_list)==false){
          cout << "Comando invalido" << endl;
@@ -320,7 +333,9 @@ void ComandosSimul(Mundo &m){
         }*/
        // if (command != "executa" && command != "inicio")
       // {
-
+        //iss >> (arg);
+        getline(iss,param);
+        arg = param;
         whichCommand(comm_list, command, arg,m);
         //if (comando == "ninho"){
            /* do{

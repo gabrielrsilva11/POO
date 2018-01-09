@@ -11,8 +11,6 @@ TO DO LIST:
 -regras das formigas e energia- G
 
 
-	executa - ler de uma linha só e os comandos de simulação
-
 -Formigas sobrepostas - I
 
 -Bugs da consola - I

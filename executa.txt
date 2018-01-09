@@ -1,1 +1,3 @@
 defmundo 10
+defen 20
+inicio
