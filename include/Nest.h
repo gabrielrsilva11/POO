@@ -36,6 +36,9 @@ class Nest{
       int getPosY() const{
         return PosY_n;
       }
+      int setEnergyAtual(int add){
+        energyAtual += add;
+      }
       char getAvatar() const{
         return avatar;
       }

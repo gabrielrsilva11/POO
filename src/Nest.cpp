@@ -21,6 +21,8 @@ void Nest::addFormigas(int num,int x, int y,int limite){
 }
 
 
+
+
 /*void Nest::andar(){
     int posX,posY;
     for(auto it=ants.begin();it<ants.end();it++){
@@ -69,4 +71,31 @@ void Nest::andar(){
             Consola::getch();
         }
     }
+}
+
+
+void Nest::apagaFormigas(){
+  for(auto it=ants.begin();it<ants.end();it++){
+    delete(*it);
+    it = ninhos.erase(it);
+  }
+}
+
+bool Nest::addEnergyFormigas(int linh, int col, int add){
+  for(auto it=ants.begin(); it < ants.end(); it++){
+    if((*it)->getPosY() == linh && (*it)->getPosX() == col){
+      (*it)->setEnergy(add);
+      return true;
+    }
+  }
+  return false;
+}
+
+bool Nest::mataFormigas(int linh, int col){
+  for(auto it=ants.begin(); it < ants.end(); it++){
+    if((*it)->getPosY() == linh && (*it)->getPosX() == col){
+      delete(*it);
+      v.erase(it);
+    }
+  }
 }

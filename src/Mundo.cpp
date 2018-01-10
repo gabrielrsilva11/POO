@@ -154,3 +154,65 @@ void Mundo::removeMigalhas(){
     }
   }
 }
+
+void Mundo::Iteracoes(int num){
+
+  do{
+    SpawnMigalha();
+
+    for(auto it=ninhos.begin(); it < ninhos.end(); it++){
+      if((*it)->getEnergy() > (*it)->getEnergyInicial() * getEnergiaLim()){
+        (*it)->addFormigas(80,(*it)->getPosX(),(*it)->getPosY(),getLimites());
+        (*it)->setEnergy(-80);
+      }
+      /*
+      for(auto ot=(*it)->ants.begin();ot < (*it)->ants.end(); ot++){
+        for(auto it2= (*ot)->regras.begin();it2 < (*ot)->regras.end();it2++){
+          if((*it2)->condicao(*this,(*ot)->getRVisao(),(*ot)->getRmov())){
+            (*it2)->acao(*this, (*ot)->getRVisao(), (*ot)->getRmov());
+          }
+        }
+      } E PRECISO FAZER ISTO COMO METODOS DOS NINHOS E DAS FORMIGAS !! */
+    }
+    num--;
+  }while(num > 0);
+}
+
+void Mundo::addEnergyNinhos(int energy, int ID){
+  for(auto it=ninhos.begin();it < ninhos.end(); it++){
+    if((*it)->getID() == ID){
+      (*it)->setEnergyAtual(energy);
+      break;
+    }
+  }
+}
+
+void Mundo::addMigalha(int col, linha){
+  // codigo de verificacao das posicoes que esta na funcao de andar.
+  migalhas.push_back(new Migalha(energiaInic, posx, posy));
+}
+
+void Mundo::Inseticida(int id){
+  for(auto it=ninhos.begin();it < ninhos.end(); it++){
+    if((*it)->getID() == id){
+      (*it)->apagaFormigas();
+      delete(*it);
+      ninhos.erase(it);
+      return;
+    }
+  }
+}
+
+void Mundo::addEnergyFormigas(int linh, int col, int add){
+  for(auto it=ninhos.begin();it<ninhos.end();it++){
+    if((*it)->addEnergyFormigas(linh,col,add)) //se devolver true ja encontrou a formiga e sai do ciclo
+      break;
+  }
+}
+
+void Mundo::mataFormigas(int linh,int col){
+  for(auto it=ninhos.begin();it<ninhos.end();it++){
+    if((*it)->mataFormigas(linh, col))
+      break;
+  }
+}

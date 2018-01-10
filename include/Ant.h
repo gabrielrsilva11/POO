@@ -58,6 +58,7 @@ class Ant{
      void setPosY(int add){
        PosY +=add;
      }
+     virtual void comeMigalha()=0;
      ~Ant(){//cout << "Formiga a morrer" << endl;
      };
 };
@@ -72,6 +73,7 @@ public:
     regras.push_back(new RegraVaiParaNinho);
     regras.push_back(new RegraPasseia);
   }
+  virtual void comeMigalha();
 };
 class Vigilante:public Ant{
 public:
@@ -82,6 +84,7 @@ public:
     regras.push_back(new RegraProcuraMigalha);
     regras.push_back(new RegraPasseia);
   }
+  virtual void comeMigalha();
 };
 class Assaltante:public Ant{
 public:
@@ -93,6 +96,7 @@ public:
     regras.push_back(new RegraProcuraMigalha);
     regras.push_back(new RegraPasseia);
   }
+  virtual void comeMigalha();
 };
 class Exploradora:public Ant{
   Assaltante(int a=200, int b=0, int c=0, int d=10, int e=8, char f='*', int g=0):Ant(a,b,c,d,e,f,g){
@@ -100,6 +104,7 @@ class Exploradora:public Ant{
     regras.push_back(new RegraComeMigalha);
     regras.push_back(new RegraPasseia);
   }
+  virtual void comeMigalha();
 };
 class FormigaGato:public Ant{}; //ultra formiga super poderosa
 
