@@ -1,3 +1,5 @@
 defmundo 10
 defen 20
+defnm 5
+defmi 5
 inicio

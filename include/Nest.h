@@ -10,13 +10,14 @@ class Nest{
   static int counter;
   char avatar;
   int ID;
-  int energy, nova, transfere;
+  int energy, energyAtual, nova, transfere;
   vector <Ant*> ants;
   Posicao posicao;
   WORD corNinho;
   public:
       Nest(int a, int b, int c, int d, int e, WORD cor, char f= 'O'):energy(a),nova(b),transfere(c),posicao(d,e),corNinho(cor),avatar(f){
         ID = ++counter;
+        energyAtual=a;
       };
     vector <Ant*> getFormigas() const {return ants;}
       int getID() const{
@@ -37,6 +38,10 @@ class Nest{
       int getColuna() const{
         return posicao.getColuna();
       }
+      void setEnergyAtual(int add){
+        energyAtual += add;
+      }
+      int getEnergyAtual() const{return energyAtual;}
       char getAvatar() const{
         return avatar;
       }
@@ -55,16 +60,16 @@ class Nest{
         os << "Ninho " << getID() << endl;
         os << "Posicao: " << getLinha() << " " << getColuna() << endl;
         os << "---Informacoes gerais---" << endl;
-        os << "Energia: " << getEnergy()<< endl;
+        os << "Energia: " << getEnergyAtual()<< endl;
         os << "Nova: " << getNova() << endl;
         os << "Transferencia: " << getTransfere() << endl;
         os << "Numero de formigas: " << ants.size() << "\n" << endl;
         os << getAntsInfo();
         return os.str();
       }
-      void andar(int limite);
+      void andar(int limite,Mundo &m);
 
-      void addFormigas(int num,int linha, int coluna, int limite);
+      void addFormigas(int num,int linha, int coluna, int limite, char tipo);
 
       ~Nest(){
         auto i=ants.begin();
@@ -88,6 +93,10 @@ class Nest{
         }
       return false;
       }
+
+      void apagaFormigas();
+      bool addEnergyFormigas(int linh, int col, int add);
+      bool mataFormigas(int linh, int col);
      WORD getColor() const{return corNinho;}
 };
 

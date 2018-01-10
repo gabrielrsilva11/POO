@@ -9,17 +9,17 @@ class RegraFoge;
 class Ant{
     int ID;
     static int counter;
- char Avatar;
+    char tipo;
 
- int energy;
- Posicao posicao;
- //int coluna, linha; //movimento coordenadas
- int Rvisao,Rmov; //raio de vis�o e de movimento
- int limite;
- vector <Regras*> regras;
+     int energy;
+     Posicao posicao;
+     //int coluna, linha; //movimento coordenadas
+     int Rvisao,Rmov; //raio de vis�o e de movimento
+     int limite;
+     vector <Regras*> regras;
 
  public:
-     Ant(int a=50, int li=0, int col=0, int d=0, int e=0, char f='*', int g=0):energy(a),posicao(li,col),Rvisao(d),Rmov(e),Avatar(f), limite(g){
+     Ant(int a=50, int li=0, int col=0, int d=0, int e=0, char f='E', int g=0):energy(a),posicao(li,col),Rvisao(d),Rmov(e),tipo(f), limite(g){
        ID = ++counter;
       /* if(b<limite && c <limite){
         PosX = b;
@@ -30,8 +30,8 @@ class Ant{
         PosY = 0;
        }*/
      }
-     char getAvatar() const{
-       return Avatar;
+     char getTipo() const{
+       return tipo;
      }
      int getID() const{
        return ID;
@@ -56,7 +56,7 @@ class Ant{
      }
      string getInfo(){
        ostringstream os;
-       os << "ID: " << getID() << " Energy: " << getEnergy() << " Pos: " << getLinha() << " " << getColuna() << " Raio Visao: " << getRvisao() << " Raio Mov: " << getRmov();
+       os << "ID: " << getID() << " Energy: " << getEnergy() << " Pos: " << getLinha() << " " << getColuna() << " Raio Visao: " << getRvisao() << " Raio Mov: " << getRmov() << " Tipo: " << getTipo();
        return os.str();
      }
      void setEnergy(int add){
@@ -85,22 +85,22 @@ class Ant{
 
 class Cuidadora:public Ant{
 public:
-  Cuidadora(int a=100, int b=0, int c=0, int d=5, int e=3, char f='*', int g=0);
+  Cuidadora(int a=100, int b=0, int c=0, int d=5, int e=3, char f='C', int g=0);
 };
 
 class Vigilante:public Ant{
 public:
-  Vigilante(int a=150, int b=0, int c=0, int d=7, int e=5, char f='*', int g=0);
+  Vigilante(int a=150, int b=0, int c=0, int d=7, int e=5, char f='V', int g=0);
 };
 
 class Assaltante:public Ant{
 public:
-  Assaltante(int a=80, int b=0, int c=0, int d=8, int e=4, char f='*', int g=0);
+  Assaltante(int a=80, int b=0, int c=0, int d=8, int e=4, char f='A', int g=0);
 };
 
 class Exploradora:public Ant{
 public:
-  Exploradora(int a=200, int b=0, int c=0, int d=10, int e=8, char f='*', int g=0);
+  Exploradora(int a=200, int b=0, int c=0, int d=10, int e=8, char f='E', int g=0);
 };
 
 class FormigaGato:public Ant{}; //ultra formiga super poderosa

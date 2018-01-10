@@ -51,7 +51,7 @@ class Mundo
         string getInfo() const;
         int getLimites() const {return limite;}
         void newNinho( int x, int y);
-        void addFormigas(int num, int ID ,int linha = -1,int coluna = -1);
+        void addFormigas(int num, char tipo,int ID ,int linha = -1,int coluna = -1);
         string getNinho(int ID) const;
 
         string getInfoCoord(int x, int y);
@@ -64,8 +64,13 @@ class Mundo
         int getMigalhasSize() {return migalhas.size();}
         void iteracoes(int num);
 
-
+        void addEnergyNinhos(int energy, int ID);
+        void addMigalha(int linha, int col);
+        void inseticida(int id);
+        void addEnergyFormigas(int linh, int col, int add);
+        void mataFormigas(int linh,int col);
         vector <Nest*> getNinhos() const {return ninhos;}
+        vector <Migalha*> getMigalhas() const {return migalhas;}
         string getInfoAntsNinho(int ID) const;
         ~Mundo(){
 
@@ -76,6 +81,7 @@ class Mundo
                     delete (*i);
                 }
         }
+        bool verificaPos(int linha, int col);
 
 };
 

@@ -154,7 +154,6 @@ void whichCommand(const vector<string>&comm_list, const string &command, const s
         if (command == "defmundo")
           if(atoi(arg.c_str()) <= 10 && atoi(arg.c_str()) > 0){
             m.criaMundo(atoi(arg.c_str()));
-            cout << m.getLimites() <<endl;
           }
           else{
             PosiciCursor(5,9);
@@ -162,8 +161,9 @@ void whichCommand(const vector<string>&comm_list, const string &command, const s
             PosiciCursor(5,10);
             getchar();
           }
-        else if (command == "defen")
+        else if (command == "defen"){
             m.setEnergNinho(atoi(arg.c_str()));
+        }
         else if (command == "defpc")
             m.setEnergLim(atoi(arg.c_str()));
         else if (command == "defvt")
@@ -175,8 +175,9 @@ void whichCommand(const vector<string>&comm_list, const string &command, const s
               cout << "Valor introduzido muito alto";
         else if (command == "defme")
             m.setEnergMig(atoi(arg.c_str()));
-        else if (command == "defnm")
+        else if (command == "defnm"){
             m.setMaxMig(atoi(arg.c_str()));
+        }
         /*else if (command == "executa"){
             leExecuta(comm_list,m,arg);
         }*/
@@ -204,13 +205,15 @@ void whichCommand(const vector<string>&comm_list, const string &command, const s
             }
         }
         else if (command == "criaf"){
-              string arg1, arg2;
+              string arg1,arg2;
+              char tipo;
               istringstream iss(arg);
               iss >> (arg1); //quant
+              iss >> (tipo); //tipo
               getline(iss,arg2); //id ninho
               //cout << arg1 << arg2 << endl;
               //getchar();
-            m.addFormigas(atoi(arg1.c_str()), atoi(arg2.c_str())); //  falta meter a imprimir
+            m.addFormigas(atoi(arg1.c_str()), tipo, atoi(arg2.c_str())); //  falta meter a imprimir
         }
         else if (command == "cria1"){
             string arg1, arg2,arg3;
@@ -240,24 +243,69 @@ void whichCommand(const vector<string>&comm_list, const string &command, const s
               istringstream iss(arg);
               iss >> (arg1); //linha
               getline(iss,arg2); //coluna
-            /*if(m.verificaPos(atoi(arg1.c_str()),atoi(arg2.c_str()))==false){
-                Consola::clrscr();
-                Consola::gotoxy(0,0);
+              if(m.verificaPos(atoi(arg1.c_str()),atoi(arg2.c_str()))){
+                LimpaEcra();
+                PosiciCursor(0,0);
                 cout << m.getInfoCoord(atoi(arg1.c_str()), atoi(arg2.c_str()));
-            }*/
-            //else
-            /*    cout << "Posicao esta vazia";
-            cout << "Prima uma tecla para voltar as opcoes";
-            Consola::getch();
+                cout << "Prima uma tecla para voltar as opcoes";
+                getchar();
+              }
+              else
+              {
+                LimpaEcra();
+                PosiciCursor(0,0);
+                cout << "Posicao esta vazia. Prima uma tecla para voltar as opcoes" << endl;
+                getchar();
+              }
         }
         else if (command == "tempo"){
-            PosiciCursor(5+m.getLimites()*4,7);
-            cout << "Numero de iteracoes: ";
-            PosiciCursor(5+m.getLimites()*4,8);
-            getline(cin, arg1);
+            //PosiciCursor(5+m.getLimites()*4,7);
+            //cout << "Numero de iteracoes: ";
+            //PosiciCursor(5+m.getLimites()*4,8);
+            //getline(cin, arg1);
+            string arg1;
+            istringstream iss(arg);
+            iss >> (arg1);
             m.iteracoes(atoi(arg1.c_str()));
-          }*/
-        }
+          }
+        else if (command == "energninho"){
+              string arg1, arg2;
+              istringstream iss(arg);
+              iss >> (arg1); //energia
+              getline(iss,arg2); //id
+              m.addEnergyNinhos(atoi(arg1.c_str()),atoi(arg2.c_str()));
+          }
+        else if (command == "energformiga"){
+              string arg1, arg2,arg3;
+              istringstream iss(arg);
+              iss >> (arg1); //linha
+              iss >> (arg2); //coluna
+              getline(iss,arg3); //energia a adicionar
+            m.addEnergyFormigas(atoi(arg1.c_str()),atoi(arg2.c_str()),atoi(arg3.c_str()));
+          }
+        else if (command == "migalha"){
+              string arg1, arg2;
+              istringstream iss(arg);
+              iss >> (arg1); //linha
+              getline(iss,arg2); //coluna
+            if(atoi(arg1.c_str()) < m.getLimites() && atoi(arg2.c_str()) < m.getLimites() && atoi(arg1.c_str()) >= 0 && atoi(arg2.c_str()) >= 0)
+                m.addMigalha(atoi(arg1.c_str()), atoi(arg2.c_str()));
+            else {
+            cout << "Valores invalidos. Carregue numa tecla para continuar" << endl;
+            getchar();
+            }
+          }
+        else if (command == "inseticida"){
+            m.inseticida(atoi(arg.c_str()));
+          }
+        else if (command == "mata"){
+              string arg1, arg2;
+              istringstream iss(arg);
+              iss >> (arg1); //linha
+              getline(iss,arg2); //coluna
+              m.mataFormigas(atoi(arg1.c_str()),atoi(arg2.c_str()));
+
+          }
       //  else if (command == )
 
 
@@ -428,14 +476,16 @@ void ComandosSimul(Mundo &m){
 
 void ImprimeMundo(const Mundo &m){
            int lim = m.getLimites();
+           char background = 35;
            corTexto(Consola::COR_DE_ROSA);
             for (int i = 0; i< lim; i++) {
                 for (int j = 0; j<lim; j++) {
                 PosiciCursor(5 + j * 3, 5 + i * 2);
-                cout << "A";
+                cout << background;
                 }
             }
             ImprimeNinho(m.getNinhos());
+            ImprimeMigalhas(m.getMigalhas());
         }
 
 void ImprimeNinho (const vector <Nest*> &ninhos){
@@ -449,9 +499,18 @@ void ImprimeNinho (const vector <Nest*> &ninhos){
                 corTexto(Consola::VERMELHO);
                 ImprimeFormigas((*it)->getFormigas());
             }
+}
 
-
-        }
+void ImprimeMigalhas (const vector <Migalha*> &migalhas){
+int linha, coluna;
+            for(auto it=migalhas.begin(); it<migalhas.end(); it++){
+                corTexto(Consola::CYAN_CLARO);
+                linha =(*it)->getLinha();
+                coluna =(*it)->getColuna();
+                PosiciCursor(5 + coluna * 3, 5 + linha * 2);
+                cout << '*';
+            }
+}
 
 void ImprimeFormigas (const vector <Ant*> &formigas){
             int linha, coluna;
@@ -459,7 +518,7 @@ void ImprimeFormigas (const vector <Ant*> &formigas){
                 linha =(*it)->getLinha();
                 coluna =(*it)->getColuna();
                 PosiciCursor(5 + coluna * 3, 5 + linha * 2);
-                cout << (*it)->getAvatar();
+                cout << (*it)->getTipo();
             }
 
         }

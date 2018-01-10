@@ -1,5 +1,5 @@
 ninho 2 1
-criaf 3 1
+criaf 3 A 1
 ninho 3 0
-criaf 2 1
-criaf 4 2
+criaf 2 C 1
+criaf 4 E 2
